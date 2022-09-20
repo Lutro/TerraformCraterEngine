@@ -1,72 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="TerraformCrater">
-      <UniqueIdentifier>{B8A455F8-2430-C3BC-2D41-46B1994B1FBD}</UniqueIdentifier>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="TerraformCrater\Core">
-      <UniqueIdentifier>{107C2AB4-FC0A-B47D-A529-C8789197C423}</UniqueIdentifier>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="TerraformCrater\Debug">
-      <UniqueIdentifier>{2E598639-9AC5-4134-63B9-D991CFE4639C}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TerraformCrater\Events">
-      <UniqueIdentifier>{9CD1DB6D-88CB-04C0-7138-9BD05DD16A2C}</UniqueIdentifier>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\TerraformCrater.h" />
+    <ClInclude Include="src\Test.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="src\TerraformCrater\Core.h">
-      <Filter>TerraformCrater</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\TerraformCrater\Core\Application.h">
-      <Filter>TerraformCrater\Core</Filter>
+    <ClInclude Include="src\TerraformCrater\Application.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\TerraformCrater\Core\Assert.h">
-      <Filter>TerraformCrater\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\TerraformCrater\Core\Base.h">
-      <Filter>TerraformCrater\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\TerraformCrater\Core\KeyCodes.h">
-      <Filter>TerraformCrater\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\TerraformCrater\Core\Log.h">
-      <Filter>TerraformCrater\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\TerraformCrater\Core\MouseCodes.h">
-      <Filter>TerraformCrater\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\TerraformCrater\Core\PlatformDetection.h">
-      <Filter>TerraformCrater\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\TerraformCrater\Debug\Instrumentor.h">
-      <Filter>TerraformCrater\Debug</Filter>
+    <ClInclude Include="src\TerraformCrater.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\TerraformCrater\EntryPoint.h">
-      <Filter>TerraformCrater</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\TerraformCrater\Events\ApplicationEvent.h">
-      <Filter>TerraformCrater\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="src\TerraformCrater\Events\Event.h">
-      <Filter>TerraformCrater\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="src\TerraformCrater\Events\KeyEvent.h">
-      <Filter>TerraformCrater\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="src\TerraformCrater\Events\MouseEvent.h">
-      <Filter>TerraformCrater\Events</Filter>
-    </ClInclude>
-    <ClInclude Include="src\tcpch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\TerraformCrater\Core\Application.cpp">
-      <Filter>TerraformCrater\Core</Filter>
+    <ClCompile Include="src\Test.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\TerraformCrater\Core\Log.cpp">
-      <Filter>TerraformCrater\Core</Filter>
+    <ClCompile Include="src\TerraformCrater\Application.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\tcpch.cpp" />
   </ItemGroup>
 </Project>

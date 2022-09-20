@@ -1,8 +1,6 @@
 #pragma once
 
-#include "../Core.h"
-
-#include "../Events/Event.h"
+#include "Core.h"
 
 namespace TerraformCrater {
 

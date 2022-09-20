@@ -1,5 +1,4 @@
 #include <TerraformCrater.h>
-#include <TerraformCrater/EntryPoint.h>
 
 class Sandbox : public TerraformCrater::Application
 {
