@@ -1,0 +1,3 @@
+[submodule "TerraformCrater/vendor/GLFW"]
+	path = TerraformCrater/vendor/GLFW
+	url = https://github.com/TheCherno/glfw
