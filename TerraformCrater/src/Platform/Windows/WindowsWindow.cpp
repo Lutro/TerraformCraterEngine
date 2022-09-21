@@ -2,10 +2,10 @@
 #include "WindowsWindow.h"
 
 #include "TerraformCrater/Events/ApplicationEvent.h"
-#include "TerraformCrater/Events/MouseCodes.h"
-#include "TerraformCrater/Events/KeyCodes.h"
 #include "TerraformCrater/Events/KeyEvent.h"
 #include "TerraformCrater/Events/MouseEvent.h"
+
+#include <glad/glad.h>
 
 namespace TerraformCrater {
 
@@ -48,6 +48,8 @@ namespace TerraformCrater {
 
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_Window);
+		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		TC_CORE_ASSERT(status, "Failed to initialize Glad!");
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
 
