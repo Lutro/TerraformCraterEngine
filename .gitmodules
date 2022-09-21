@@ -1,3 +1,6 @@
 [submodule "TerraformCrater/vendor/GLFW"]
 	path = TerraformCrater/vendor/GLFW
 	url = https://github.com/TheCherno/glfw
+[submodule "TerraformCrater/vendor/imgui"]
+	path = TerraformCrater/vendor/imgui
+	url = https://github.com/TheCherno/imgui
