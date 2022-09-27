@@ -4,3 +4,9 @@
 [submodule "TerraformCrater/vendor/imgui"]
 	path = TerraformCrater/vendor/imgui
 	url = https://github.com/TheCherno/imgui
+[submodule "TerraformCrater/vendor/doxygen"]
+	path = TerraformCrater/vendor/doxygen
+	url = https://github.com/doxygen/doxygen.git
+[submodule "TerraformCrater/vendor/glm"]
+	path = TerraformCrater/vendor/glm
+	url = https://github.com/g-truc/glm
