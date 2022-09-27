@@ -2,7 +2,6 @@
 
 
 #include "TerraformCrater/Layer.h"
-#include "TerraformCrater/Application.h"
 
 #include "TerraformCrater/Events/ApplicationEvent.h"
 #include "TerraformCrater/Events/KeyEvent.h"
@@ -11,23 +10,55 @@
 
 
 namespace TerraformCrater {
-
+	/**
+	 * @brief 
+	*/
 	class TERRAFORM_CRATER_API ImGuiLayer : public Layer
 	{
 	public:
+		/**
+		 * @brief 
+		*/
 		ImGuiLayer();
+
+		/**
+		 * @brief
+		*/
 		~ImGuiLayer();
 
-		void OnAttach();
-		void OnDetach();
-		void OnUpdate();
-		void OnEvent(Event& event);
+		/**
+		 * @brief 
+		*/
+		virtual void OnAttach();
 
+		/**
+		 * @brief 
+		*/
+		virtual void OnDetach();
+
+		/**
+		 * @brief 
+		*/
+		virtual void OnImGuiRender() override;
+		
+		/**
+		 * @brief 
+		*/
 		void Begin();
+		/**
+		 * @brief 
+		*/
 		void End();
 
-		void SetDarkThemeColors();
+		/**
+		 * @brief 
+		*/
+		void SetDarkThemeColors();		
+
 	private:
+		/**
+		 * @brief 
+		*/
 		float m_Time = 0.0f;
 	};
 }

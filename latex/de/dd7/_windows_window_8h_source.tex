@@ -1,0 +1,52 @@
+\hypertarget{_windows_window_8h_source}{}\doxysection{Windows\+Window.\+h}
+\label{_windows_window_8h_source}\index{TerraformCrater/src/Platform/Windows/WindowsWindow.h@{TerraformCrater/src/Platform/Windows/WindowsWindow.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}TerraformCrater/Window.h"{}}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <GLFW/glfw3.h>}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{namespace }TerraformCrater \{}
+\DoxyCodeLine{11     \textcolor{keyword}{class }\mbox{\hyperlink{class_terraform_crater_1_1_windows_window}{WindowsWindow}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_terraform_crater_1_1_window}{Window}}}
+\DoxyCodeLine{12     \{}
+\DoxyCodeLine{13     \textcolor{keyword}{public}:}
+\DoxyCodeLine{18         \mbox{\hyperlink{class_terraform_crater_1_1_windows_window}{WindowsWindow}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct_terraform_crater_1_1_window_props}{WindowProps}}\& props);}
+\DoxyCodeLine{22         \textcolor{keyword}{virtual} \mbox{\hyperlink{class_terraform_crater_1_1_windows_window}{\string~WindowsWindow}}();}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{27         \textcolor{keywordtype}{void} OnUpdate() \textcolor{keyword}{override};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{33         \textcolor{keyword}{inline} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_terraform_crater_1_1_windows_window_a73584f26c1da3ebab7c7b7829cb05d2c}{GetWidth}}()\textcolor{keyword}{ const override }\{ \textcolor{keywordflow}{return} m\_Data.Width; \}}
+\DoxyCodeLine{38         \textcolor{keyword}{inline} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_terraform_crater_1_1_windows_window_a52ce1e95b3ffbd718f57ee0c67878db6}{GetHeight}}()\textcolor{keyword}{ const override }\{ \textcolor{keywordflow}{return} m\_Data.Height; \}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40         \textcolor{comment}{// Window Attributes}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42         \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_terraform_crater_1_1_windows_window_a696286791101698d23f97b30397ef9fe}{SetEventCallback}}(\textcolor{keyword}{const} EventCallbackFn\& callback)\textcolor{keyword}{ override }\{ m\_Data.EventCallback = callback; \}}
+\DoxyCodeLine{47         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_terraform_crater_1_1_windows_window_a0fea82fc1538d113c12edc60a7984794}{SetVSync}}(\textcolor{keywordtype}{bool} enabled) \textcolor{keyword}{override};}
+\DoxyCodeLine{52         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_terraform_crater_1_1_windows_window_aef7829c94bda04e33fcd5b23f43b2b86}{IsVSync}}() \textcolor{keyword}{const override};}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{58         \textcolor{keyword}{inline} \textcolor{keyword}{virtual} \textcolor{keywordtype}{void}* \mbox{\hyperlink{class_terraform_crater_1_1_windows_window_ae09b2b46db5457e2a84e63229d77b968}{GetNativeWindow}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_Window; \}}
+\DoxyCodeLine{59     \textcolor{keyword}{private}:}
+\DoxyCodeLine{64         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} Init(\textcolor{keyword}{const} \mbox{\hyperlink{struct_terraform_crater_1_1_window_props}{WindowProps}}\& props);}
+\DoxyCodeLine{68         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} Shutdown();}
+\DoxyCodeLine{69     \textcolor{keyword}{private}:}
+\DoxyCodeLine{73         GLFWwindow* m\_Window;}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{78         \textcolor{keyword}{struct }WindowData}
+\DoxyCodeLine{79         \{}
+\DoxyCodeLine{80             std::string Title;}
+\DoxyCodeLine{81             \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} Width, Height; }
+\DoxyCodeLine{82             \textcolor{keywordtype}{bool} VSync;}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84             EventCallbackFn EventCallback;}
+\DoxyCodeLine{85         \};}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{90         WindowData m\_Data;}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92     \};}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94 \}}
+\DoxyCodeLine{95 }
+
+\end{DoxyCode}

@@ -1,0 +1,128 @@
+\hypertarget{namespace_terraform_crater}{}\doxysection{Terraform\+Crater Namespace Reference}
+\label{namespace_terraform_crater}\index{TerraformCrater@{TerraformCrater}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_terraform_crater_1_1_application}{Application}}
+\item 
+class \mbox{\hyperlink{class_terraform_crater_1_1_app_render_event}{App\+Render\+Event}}
+\item 
+class \mbox{\hyperlink{class_terraform_crater_1_1_app_tick_event}{App\+Tick\+Event}}
+\item 
+class \mbox{\hyperlink{class_terraform_crater_1_1_app_update_event}{App\+Update\+Event}}
+\item 
+class \mbox{\hyperlink{class_terraform_crater_1_1_event}{Event}}
+\item 
+class \mbox{\hyperlink{class_terraform_crater_1_1_event_dispatcher}{Event\+Dispatcher}}
+\item 
+class \mbox{\hyperlink{class_terraform_crater_1_1_im_gui_layer}{Im\+Gui\+Layer}}
+\item 
+class \mbox{\hyperlink{class_terraform_crater_1_1_key_event}{Key\+Event}}
+\item 
+class \mbox{\hyperlink{class_terraform_crater_1_1_key_pressed_event}{Key\+Pressed\+Event}}
+\item 
+class \mbox{\hyperlink{class_terraform_crater_1_1_key_released_event}{Key\+Released\+Event}}
+\item 
+class \mbox{\hyperlink{class_terraform_crater_1_1_key_typed_event}{Key\+Typed\+Event}}
+\item 
+class \mbox{\hyperlink{class_terraform_crater_1_1_layer}{Layer}}
+\item 
+class \mbox{\hyperlink{class_terraform_crater_1_1_layer_stack}{Layer\+Stack}}
+\item 
+class \mbox{\hyperlink{class_terraform_crater_1_1_log}{Log}}
+\item 
+class \mbox{\hyperlink{class_terraform_crater_1_1_mouse_button_event}{Mouse\+Button\+Event}}
+\item 
+class \mbox{\hyperlink{class_terraform_crater_1_1_mouse_button_pressed_event}{Mouse\+Button\+Pressed\+Event}}
+\item 
+class \mbox{\hyperlink{class_terraform_crater_1_1_mouse_button_released_event}{Mouse\+Button\+Released\+Event}}
+\item 
+class \mbox{\hyperlink{class_terraform_crater_1_1_mouse_moved_event}{Mouse\+Moved\+Event}}
+\item 
+class \mbox{\hyperlink{class_terraform_crater_1_1_mouse_scrolled_event}{Mouse\+Scrolled\+Event}}
+\item 
+class \mbox{\hyperlink{class_terraform_crater_1_1_window}{Window}}
+\item 
+class \mbox{\hyperlink{class_terraform_crater_1_1_window_close_event}{Window\+Close\+Event}}
+\item 
+struct \mbox{\hyperlink{struct_terraform_crater_1_1_window_props}{Window\+Props}}
+\item 
+class \mbox{\hyperlink{class_terraform_crater_1_1_window_resize_event}{Window\+Resize\+Event}}
+\item 
+class \mbox{\hyperlink{class_terraform_crater_1_1_windows_window}{Windows\+Window}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespace_terraform_crater_a10510dca2364ad718dd06df1dd0e16e9}\label{namespace_terraform_crater_a10510dca2364ad718dd06df1dd0e16e9}} 
+using {\bfseries Key\+Code} = uint16\+\_\+t
+\item 
+\mbox{\Hypertarget{namespace_terraform_crater_ac753a29744e39011460ee43a4a03ba36}\label{namespace_terraform_crater_ac753a29744e39011460ee43a4a03ba36}} 
+using {\bfseries Mouse\+Code} = uint16\+\_\+t
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespace_terraform_crater_adb7329c508af1d1a3f847473249284af}\label{namespace_terraform_crater_adb7329c508af1d1a3f847473249284af}} 
+enum class {\bfseries Event\+Type} \{ \newline
+{\bfseries None} = 0
+, {\bfseries Window\+Close}
+, {\bfseries Window\+Resize}
+, {\bfseries Window\+Focus}
+, \newline
+{\bfseries Window\+Lost\+Focus}
+, {\bfseries Window\+Moved}
+, {\bfseries App\+Tick}
+, {\bfseries App\+Update}
+, \newline
+{\bfseries App\+Render}
+, {\bfseries Key\+Pressed}
+, {\bfseries Key\+Released}
+, {\bfseries Key\+Typed}
+, \newline
+{\bfseries Mouse\+Button\+Pressed}
+, {\bfseries Mouse\+Button\+Released}
+, {\bfseries Mouse\+Moved}
+, {\bfseries Mouse\+Scrolled}
+ \}
+\item 
+\mbox{\Hypertarget{namespace_terraform_crater_a437aca104ee708555a1b32c721cbe772}\label{namespace_terraform_crater_a437aca104ee708555a1b32c721cbe772}} 
+enum {\bfseries Event\+Category} \{ \newline
+{\bfseries None} = 0
+, {\bfseries Event\+Category\+Application} = BIT(0)
+, {\bfseries Event\+Category\+Input} = BIT(1)
+, {\bfseries Event\+Category\+Keyboard} = BIT(2)
+, \newline
+{\bfseries Event\+Category\+Mouse} = BIT(3)
+, {\bfseries Event\+Category\+Mouse\+Button} = BIT(4)
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespace_terraform_crater_af208a9b7a8bf8d3d0208fcab3fe68683}\label{namespace_terraform_crater_af208a9b7a8bf8d3d0208fcab3fe68683}} 
+\mbox{\hyperlink{class_terraform_crater_1_1_application}{Application}} $\ast$ {\bfseries Create\+Application} ()
+\item 
+\mbox{\Hypertarget{namespace_terraform_crater_a497419da7e7773ef084ab25036b0a98b}\label{namespace_terraform_crater_a497419da7e7773ef084ab25036b0a98b}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const \mbox{\hyperlink{class_terraform_crater_1_1_event}{Event}} \&e)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Returns an Image object that can then be painted on the screen. The url argument must specify an absolute \href{\#{@link}}{\texttt{ @javalink URL\}}}. The name argument is a specifier that is relative to the url argument. 
+
+This method always returns immediately, whether or not the image exists. When this applet attempts to draw the image on the screen, the data will be loaded. The graphics primitives that draw the image will incrementally paint on the screen.
+
+
+\begin{DoxyParams}{Parameters}
+{\em url} & an absolute URL giving the base location of the image \\
+\hline
+{\em name} & the location of the image, relative to the url argument \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the image at the specified URL 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+Image 
+\end{DoxySeeAlso}

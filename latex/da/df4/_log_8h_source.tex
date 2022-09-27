@@ -1,0 +1,49 @@
+\hypertarget{_log_8h_source}{}\doxysection{Log.\+h}
+\label{_log_8h_source}\index{TerraformCrater/src/TerraformCrater/Log.h@{TerraformCrater/src/TerraformCrater/Log.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}Core.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}spdlog/spdlog.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}spdlog/fmt/ostr.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{namespace }TerraformCrater \{}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9     \textcolor{keyword}{class }TERRAFORM\_CRATER\_API \mbox{\hyperlink{class_terraform_crater_1_1_log}{Log}}}
+\DoxyCodeLine{10     \{}
+\DoxyCodeLine{11     \textcolor{keyword}{public}:}
+\DoxyCodeLine{12         \textcolor{keyword}{static} \textcolor{keywordtype}{void} Init();}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14         \textcolor{keyword}{inline} \textcolor{keyword}{static} std::shared\_ptr<spdlog::logger>\& GetCoreLogger() \{ \textcolor{keywordflow}{return} s\_CoreLogger; \}}
+\DoxyCodeLine{15         \textcolor{keyword}{inline} \textcolor{keyword}{static} std::shared\_ptr<spdlog::logger>\& GetClientLogger() \{ \textcolor{keywordflow}{return} s\_ClientLogger; \}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17     \textcolor{keyword}{private}:}
+\DoxyCodeLine{18         \textcolor{keyword}{static} std::shared\_ptr<spdlog::logger> s\_CoreLogger;}
+\DoxyCodeLine{19         \textcolor{keyword}{static} std::shared\_ptr<spdlog::logger> s\_ClientLogger;}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \};}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{comment}{// Core log Macros}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#define TC\_CORE\_TRACE(...)     ::TerraformCrater::Log::GetCoreLogger()-\/>trace(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#define TC\_CORE\_INFO(...)      ::TerraformCrater::Log::GetCoreLogger()-\/>info(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#define TC\_CORE\_WARN(...)      ::TerraformCrater::Log::GetCoreLogger()-\/>warn(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#define TC\_CORE\_ERROR(...)     ::TerraformCrater::Log::GetCoreLogger()-\/>error(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#define TC\_CORE\_FATAL(...)     ::TerraformCrater::Log::GetCoreLogger()-\/>fatal(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#define TC\_CORE\_CRITICAL(...)  ::TerraformCrate::Log::GetCoreLogger()-\/>critical(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{comment}{// Client log macros}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define TC\_TRACE(...)     ::TerraformCrater::Log::GetClientLogger()-\/>trace(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#define TC\_INFO(...)      ::TerraformCrater::Log::GetClientLogger()-\/>info(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#define TC\_WARN(...)      ::TerraformCrater::Log::GetClientLogger()-\/>warn(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#define TC\_ERROR(...)     ::TerraformCrater::Log::GetClientLogger()-\/>error(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#define TC\_FATAL(...)     ::TerraformCrater::Log::GetClientLogger()-\/>fatal(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#define TC\_CRITICAL(...)  ::TerraformCrate::Log::GetClientLogger()-\/>critical(\_\_VA\_ARGS\_\_)}}
+
+\end{DoxyCode}

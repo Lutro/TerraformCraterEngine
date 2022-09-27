@@ -1,0 +1,32 @@
+\hypertarget{_layer_8h_source}{}\doxysection{Layer.\+h}
+\label{_layer_8h_source}\index{TerraformCrater/src/TerraformCrater/Layer.h@{TerraformCrater/src/TerraformCrater/Layer.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}TerraformCrater/Core.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}TerraformCrater/Events/Event.h"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{namespace }TerraformCrater \{}
+\DoxyCodeLine{10     \textcolor{keyword}{class }TERRAFORM\_CRATER\_API \mbox{\hyperlink{class_terraform_crater_1_1_layer}{Layer}}}
+\DoxyCodeLine{11     \{}
+\DoxyCodeLine{12     \textcolor{keyword}{public}:}
+\DoxyCodeLine{17         \mbox{\hyperlink{class_terraform_crater_1_1_layer}{Layer}}(\textcolor{keyword}{const} std::string\& name = \textcolor{stringliteral}{"{}Layer"{}});}
+\DoxyCodeLine{21         \textcolor{keyword}{virtual} \mbox{\hyperlink{class_terraform_crater_1_1_layer}{\string~Layer}}();}
+\DoxyCodeLine{25         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} OnAttach() \{\}}
+\DoxyCodeLine{29         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} OnDetach() \{\}}
+\DoxyCodeLine{33         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} OnUpdate() \{\}}
+\DoxyCodeLine{37         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} OnImGuiRender() \{\}}
+\DoxyCodeLine{42         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_terraform_crater_1_1_layer_a0a9a99da5116677b24e620efbb228a1a}{OnEvent}}(\mbox{\hyperlink{class_terraform_crater_1_1_event}{Event}}\& event) \{\}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{48         \textcolor{keyword}{inline} \textcolor{keyword}{const} std::string\& \mbox{\hyperlink{class_terraform_crater_1_1_layer_ae99491583b7f3f063dd0f3757136a37d}{GetName}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_DebugName; \}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{keyword}{protected}:}
+\DoxyCodeLine{54         std::string m\_DebugName;}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \};}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \}}
+\DoxyCodeLine{59 }
+
+\end{DoxyCode}

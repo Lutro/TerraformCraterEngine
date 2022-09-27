@@ -1,10 +1,12 @@
 #pragma once
 
 #include "Event.h"
-#include "MouseCodes.h"
+#include "TerraformCrater/Core/MouseCodes.h"
 
 namespace TerraformCrater {
-
+	/**
+	 * @brief 
+	*/
 	class MouseMovedEvent : public Event
 	{
 	public:
@@ -27,6 +29,9 @@ namespace TerraformCrater {
 		float m_MouseX, m_MouseY;
 	};
 
+	/**
+	 * @brief 
+	*/
 	class MouseScrolledEvent : public Event
 	{
 	public:
@@ -49,6 +54,9 @@ namespace TerraformCrater {
 		float m_XOffset, m_YOffset;
 	};
 
+	/**
+	 * @brief 
+	*/
 	class MouseButtonEvent : public Event
 	{
 	public:
@@ -62,6 +70,9 @@ namespace TerraformCrater {
 		MouseCode m_Button;
 	};
 
+	/**
+	 * @brief 
+	*/
 	class MouseButtonPressedEvent : public MouseButtonEvent
 	{
 	public:
@@ -78,6 +89,9 @@ namespace TerraformCrater {
 		EVENT_CLASS_TYPE(MouseButtonPressed)
 	};
 
+	/**
+	 * @brief 
+	*/
 	class MouseButtonReleasedEvent : public MouseButtonEvent
 	{
 	public:

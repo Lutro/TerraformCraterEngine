@@ -1,0 +1,62 @@
+\hypertarget{_im_gui_open_g_l_renderer_8h_source}{}\doxysection{Im\+Gui\+Open\+GLRenderer.\+h}
+\label{_im_gui_open_g_l_renderer_8h_source}\index{TerraformCrater/src/Platform/OpenGL/ImGuiOpenGLRenderer.h@{TerraformCrater/src/Platform/OpenGL/ImGuiOpenGLRenderer.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{// dear imgui: Renderer Backend for modern OpenGL with shaders / programmatic pipeline}}
+\DoxyCodeLine{2 \textcolor{comment}{// -\/ Desktop GL: 2.x 3.x 4.x}}
+\DoxyCodeLine{3 \textcolor{comment}{// -\/ Embedded GL: ES 2.0 (WebGL 1.0), ES 3.0 (WebGL 2.0)}}
+\DoxyCodeLine{4 \textcolor{comment}{// This needs to be used along with a Platform Backend (e.g. GLFW, SDL, Win32, custom..)}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{comment}{// Implemented features:}}
+\DoxyCodeLine{7 \textcolor{comment}{//  [X] Renderer: User texture binding. Use 'GLuint' OpenGL texture identifier as void*/ImTextureID. Read the FAQ about ImTextureID!}}
+\DoxyCodeLine{8 \textcolor{comment}{//  [X] Renderer: Multi-\/viewport support (multiple windows). Enable with 'io.ConfigFlags |= ImGuiConfigFlags\_ViewportsEnable'.}}
+\DoxyCodeLine{9 \textcolor{comment}{//  [x] Renderer: Large meshes support (64k+ vertices) with 16-\/bit indices (Desktop OpenGL only).}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{comment}{// You can use unmodified imgui\_impl\_* files in your project. See examples/ folder for examples of using this.}}
+\DoxyCodeLine{12 \textcolor{comment}{// Prefer including the entire imgui/ repository into your project (either as a copy or as a submodule), and only build the backends you need.}}
+\DoxyCodeLine{13 \textcolor{comment}{// If you are new to Dear ImGui, read documentation from the docs/ folder + read the top of imgui.cpp.}}
+\DoxyCodeLine{14 \textcolor{comment}{// Read online: https://github.com/ocornut/imgui/tree/master/docs}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{comment}{// About GLSL version:}}
+\DoxyCodeLine{17 \textcolor{comment}{//  The 'glsl\_version' initialization parameter should be NULL (default) or a "{}\#version XXX"{} string.}}
+\DoxyCodeLine{18 \textcolor{comment}{//  On computer platform the GLSL version default to "{}\#version 130"{}. On OpenGL ES 3 platform it defaults to "{}\#version 300 es"{}}}
+\DoxyCodeLine{19 \textcolor{comment}{//  Only override if your GL version doesn't handle this GLSL version. See GLSL version table at the top of imgui\_impl\_opengl3.cpp.}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}imgui.h"{}}      \textcolor{comment}{// IMGUI\_IMPL\_API}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{comment}{// Backend API}}
+\DoxyCodeLine{25 IMGUI\_IMPL\_API \textcolor{keywordtype}{bool}     ImGui\_ImplOpenGL3\_Init(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* glsl\_version = NULL);}
+\DoxyCodeLine{26 IMGUI\_IMPL\_API \textcolor{keywordtype}{void}     ImGui\_ImplOpenGL3\_Shutdown();}
+\DoxyCodeLine{27 IMGUI\_IMPL\_API \textcolor{keywordtype}{void}     ImGui\_ImplOpenGL3\_NewFrame();}
+\DoxyCodeLine{28 IMGUI\_IMPL\_API \textcolor{keywordtype}{void}     ImGui\_ImplOpenGL3\_RenderDrawData(ImDrawData* draw\_data);}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{comment}{// (Optional) Called by Init/NewFrame/Shutdown}}
+\DoxyCodeLine{31 IMGUI\_IMPL\_API \textcolor{keywordtype}{bool}     ImGui\_ImplOpenGL3\_CreateFontsTexture();}
+\DoxyCodeLine{32 IMGUI\_IMPL\_API \textcolor{keywordtype}{void}     ImGui\_ImplOpenGL3\_DestroyFontsTexture();}
+\DoxyCodeLine{33 IMGUI\_IMPL\_API \textcolor{keywordtype}{bool}     ImGui\_ImplOpenGL3\_CreateDeviceObjects();}
+\DoxyCodeLine{34 IMGUI\_IMPL\_API \textcolor{keywordtype}{void}     ImGui\_ImplOpenGL3\_DestroyDeviceObjects();}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{comment}{// Specific OpenGL ES versions}}
+\DoxyCodeLine{37 \textcolor{comment}{//\#define IMGUI\_IMPL\_OPENGL\_ES2     // Auto-\/detected on Emscripten}}
+\DoxyCodeLine{38 \textcolor{comment}{//\#define IMGUI\_IMPL\_OPENGL\_ES3     // Auto-\/detected on iOS/Android}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{comment}{// You can explicitly select GLES2 or GLES3 API by using one of the '\#define IMGUI\_IMPL\_OPENGL\_LOADER\_XXX' in imconfig.h or compiler command-\/line.}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#if !defined(IMGUI\_IMPL\_OPENGL\_ES2) \(\backslash\)}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{ \&\& !defined(IMGUI\_IMPL\_OPENGL\_ES3)}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{comment}{// Try to detect GLES on matching platforms}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#if defined(\_\_APPLE\_\_)}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#include <TargetConditionals.h>}}
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#if (defined(\_\_APPLE\_\_) \&\& (TARGET\_OS\_IOS || TARGET\_OS\_TV)) || (defined(\_\_ANDROID\_\_))}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#define IMGUI\_IMPL\_OPENGL\_ES3               }\textcolor{comment}{// iOS, Android  -\/> GL ES 3, "{}\#version 300 es"{}}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#elif defined(\_\_EMSCRIPTEN\_\_) || defined(\_\_amigaos4\_\_)}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#define IMGUI\_IMPL\_OPENGL\_ES2               }\textcolor{comment}{// Emscripten    -\/> GL ES 2, "{}\#version 100"{}}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{53 \textcolor{comment}{// Otherwise imgui\_impl\_opengl3\_loader.h will be used.}}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

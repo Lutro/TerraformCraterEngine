@@ -1,0 +1,142 @@
+\hypertarget{class_terraform_crater_1_1_window}{}\doxysection{Terraform\+Crater\+::Window Class Reference}
+\label{class_terraform_crater_1_1_window}\index{TerraformCrater::Window@{TerraformCrater::Window}}
+Inheritance diagram for Terraform\+Crater\+::Window\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{de/dad/class_terraform_crater_1_1_window}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_terraform_crater_1_1_window_ac1f3090dda835d6860ed2127ed782c50}\label{class_terraform_crater_1_1_window_ac1f3090dda835d6860ed2127ed782c50}} 
+using {\bfseries Event\+Callback\+Fn} = std\+::function$<$ void(\mbox{\hyperlink{class_terraform_crater_1_1_event}{Event}} \&)$>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_terraform_crater_1_1_window_a06f34f95986c2eae7a7de1e78ed8a06e}\label{class_terraform_crater_1_1_window_a06f34f95986c2eae7a7de1e78ed8a06e}} 
+virtual void {\bfseries On\+Update} ()=0
+\item 
+virtual unsigned int \mbox{\hyperlink{class_terraform_crater_1_1_window_a11346fd9a461ee56a16a98eac96b8faa}{Get\+Width}} () const =0
+\item 
+virtual unsigned int \mbox{\hyperlink{class_terraform_crater_1_1_window_af9f3a36aa389ef643fb31bb148c5e23f}{Get\+Height}} () const =0
+\item 
+virtual void \mbox{\hyperlink{class_terraform_crater_1_1_window_a911890ea6ef3710c3f9b48586d318bc4}{Set\+Event\+Callback}} (const Event\+Callback\+Fn \&callback)=0
+\item 
+virtual void \mbox{\hyperlink{class_terraform_crater_1_1_window_a587005cc49c68966277bb9db94a6b88e}{Set\+VSync}} (bool enabled)=0
+\item 
+virtual bool \mbox{\hyperlink{class_terraform_crater_1_1_window_a803833c8917ffebb7ff541e53f730e24}{Is\+VSync}} () const =0
+\item 
+virtual void $\ast$ \mbox{\hyperlink{class_terraform_crater_1_1_window_a2b8dae543f4af3e588a2d6bf44c5c088}{Get\+Native\+Window}} () const =0
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_terraform_crater_1_1_window}{Window}} $\ast$ \mbox{\hyperlink{class_terraform_crater_1_1_window_ada9e13ea9f43446d0722cf67edbf191a}{Create}} (const \mbox{\hyperlink{struct_terraform_crater_1_1_window_props}{Window\+Props}} \&props=\mbox{\hyperlink{struct_terraform_crater_1_1_window_props}{Window\+Props}}())
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_terraform_crater_1_1_window_ada9e13ea9f43446d0722cf67edbf191a}\label{class_terraform_crater_1_1_window_ada9e13ea9f43446d0722cf67edbf191a}} 
+\index{TerraformCrater::Window@{TerraformCrater::Window}!Create@{Create}}
+\index{Create@{Create}!TerraformCrater::Window@{TerraformCrater::Window}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_terraform_crater_1_1_window}{Window}} $\ast$ Terraform\+Crater\+::\+Window\+::\+Create (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_terraform_crater_1_1_window_props}{Window\+Props}} \&}]{props = {\ttfamily \mbox{\hyperlink{struct_terraform_crater_1_1_window_props}{Window\+Props}}()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em props} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_terraform_crater_1_1_window_af9f3a36aa389ef643fb31bb148c5e23f}\label{class_terraform_crater_1_1_window_af9f3a36aa389ef643fb31bb148c5e23f}} 
+\index{TerraformCrater::Window@{TerraformCrater::Window}!GetHeight@{GetHeight}}
+\index{GetHeight@{GetHeight}!TerraformCrater::Window@{TerraformCrater::Window}}
+\doxysubsubsection{\texorpdfstring{GetHeight()}{GetHeight()}}
+{\footnotesize\ttfamily virtual unsigned int Terraform\+Crater\+::\+Window\+::\+Get\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_terraform_crater_1_1_windows_window_a52ce1e95b3ffbd718f57ee0c67878db6}{Terraform\+Crater\+::\+Windows\+Window}}.
+
+\mbox{\Hypertarget{class_terraform_crater_1_1_window_a2b8dae543f4af3e588a2d6bf44c5c088}\label{class_terraform_crater_1_1_window_a2b8dae543f4af3e588a2d6bf44c5c088}} 
+\index{TerraformCrater::Window@{TerraformCrater::Window}!GetNativeWindow@{GetNativeWindow}}
+\index{GetNativeWindow@{GetNativeWindow}!TerraformCrater::Window@{TerraformCrater::Window}}
+\doxysubsubsection{\texorpdfstring{GetNativeWindow()}{GetNativeWindow()}}
+{\footnotesize\ttfamily virtual void $\ast$ Terraform\+Crater\+::\+Window\+::\+Get\+Native\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_terraform_crater_1_1_windows_window_ae09b2b46db5457e2a84e63229d77b968}{Terraform\+Crater\+::\+Windows\+Window}}.
+
+\mbox{\Hypertarget{class_terraform_crater_1_1_window_a11346fd9a461ee56a16a98eac96b8faa}\label{class_terraform_crater_1_1_window_a11346fd9a461ee56a16a98eac96b8faa}} 
+\index{TerraformCrater::Window@{TerraformCrater::Window}!GetWidth@{GetWidth}}
+\index{GetWidth@{GetWidth}!TerraformCrater::Window@{TerraformCrater::Window}}
+\doxysubsubsection{\texorpdfstring{GetWidth()}{GetWidth()}}
+{\footnotesize\ttfamily virtual unsigned int Terraform\+Crater\+::\+Window\+::\+Get\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_terraform_crater_1_1_windows_window_a73584f26c1da3ebab7c7b7829cb05d2c}{Terraform\+Crater\+::\+Windows\+Window}}.
+
+\mbox{\Hypertarget{class_terraform_crater_1_1_window_a803833c8917ffebb7ff541e53f730e24}\label{class_terraform_crater_1_1_window_a803833c8917ffebb7ff541e53f730e24}} 
+\index{TerraformCrater::Window@{TerraformCrater::Window}!IsVSync@{IsVSync}}
+\index{IsVSync@{IsVSync}!TerraformCrater::Window@{TerraformCrater::Window}}
+\doxysubsubsection{\texorpdfstring{IsVSync()}{IsVSync()}}
+{\footnotesize\ttfamily virtual bool Terraform\+Crater\+::\+Window\+::\+Is\+VSync (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_terraform_crater_1_1_windows_window_aef7829c94bda04e33fcd5b23f43b2b86}{Terraform\+Crater\+::\+Windows\+Window}}.
+
+\mbox{\Hypertarget{class_terraform_crater_1_1_window_a911890ea6ef3710c3f9b48586d318bc4}\label{class_terraform_crater_1_1_window_a911890ea6ef3710c3f9b48586d318bc4}} 
+\index{TerraformCrater::Window@{TerraformCrater::Window}!SetEventCallback@{SetEventCallback}}
+\index{SetEventCallback@{SetEventCallback}!TerraformCrater::Window@{TerraformCrater::Window}}
+\doxysubsubsection{\texorpdfstring{SetEventCallback()}{SetEventCallback()}}
+{\footnotesize\ttfamily virtual void Terraform\+Crater\+::\+Window\+::\+Set\+Event\+Callback (\begin{DoxyParamCaption}\item[{const Event\+Callback\+Fn \&}]{callback }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em callback} & \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_terraform_crater_1_1_windows_window_a696286791101698d23f97b30397ef9fe}{Terraform\+Crater\+::\+Windows\+Window}}.
+
+\mbox{\Hypertarget{class_terraform_crater_1_1_window_a587005cc49c68966277bb9db94a6b88e}\label{class_terraform_crater_1_1_window_a587005cc49c68966277bb9db94a6b88e}} 
+\index{TerraformCrater::Window@{TerraformCrater::Window}!SetVSync@{SetVSync}}
+\index{SetVSync@{SetVSync}!TerraformCrater::Window@{TerraformCrater::Window}}
+\doxysubsubsection{\texorpdfstring{SetVSync()}{SetVSync()}}
+{\footnotesize\ttfamily virtual void Terraform\+Crater\+::\+Window\+::\+Set\+VSync (\begin{DoxyParamCaption}\item[{bool}]{enabled }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em enabled} & \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_terraform_crater_1_1_windows_window_a0fea82fc1538d113c12edc60a7984794}{Terraform\+Crater\+::\+Windows\+Window}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Terraform\+Crater/src/\+Terraform\+Crater/Window.\+h\item 
+Terraform\+Crater/src/\+Platform/\+Windows/Windows\+Window.\+cpp\end{DoxyCompactItemize}

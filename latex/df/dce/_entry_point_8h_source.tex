@@ -1,0 +1,27 @@
+\hypertarget{_entry_point_8h_source}{}\doxysection{Entry\+Point.\+h}
+\label{_entry_point_8h_source}\index{TerraformCrater/src/TerraformCrater/EntryPoint.h@{TerraformCrater/src/TerraformCrater/EntryPoint.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#ifdef TC\_PLATFORM\_WINDOWS}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{keyword}{extern} \mbox{\hyperlink{class_terraform_crater_1_1_application}{TerraformCrater::Application}}* TerraformCrater::CreateApplication();}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keywordtype}{int} main(\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char}** argv)}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10     TerraformCrater::Log::Init();}
+\DoxyCodeLine{11     TC\_CORE\_WARN(\textcolor{stringliteral}{"{}Initialized Log!"{}});}
+\DoxyCodeLine{12     \textcolor{keywordtype}{int} a = 5;}
+\DoxyCodeLine{13     TC\_INFO(\textcolor{stringliteral}{"{}Hello! Var= \{0\}"{}}, a);}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15     \textcolor{keyword}{auto} app = TerraformCrater::CreateApplication();}
+\DoxyCodeLine{16     app-\/>Run();}
+\DoxyCodeLine{17     \textcolor{keyword}{delete} app;}
+\DoxyCodeLine{18 \}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

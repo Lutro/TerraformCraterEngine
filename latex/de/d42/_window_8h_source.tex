@@ -1,0 +1,49 @@
+\hypertarget{_window_8h_source}{}\doxysection{Window.\+h}
+\label{_window_8h_source}\index{TerraformCrater/src/TerraformCrater/Window.h@{TerraformCrater/src/TerraformCrater/Window.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#include "{}TerraformCrater/Core.h"{}}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}TerraformCrater/Events/Event.h"{}}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{namespace }TerraformCrater \{}
+\DoxyCodeLine{8     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_terraform_crater_1_1_window_props}{WindowProps}}}
+\DoxyCodeLine{9     \{}
+\DoxyCodeLine{10         std::string Title;}
+\DoxyCodeLine{11         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} Width;}
+\DoxyCodeLine{12         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} Height;}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14         \mbox{\hyperlink{struct_terraform_crater_1_1_window_props}{WindowProps}}(\textcolor{keyword}{const} std::string\& title = \textcolor{stringliteral}{"{}TC Engine"{}},}
+\DoxyCodeLine{15             \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} width = 1280,}
+\DoxyCodeLine{16             \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} height = 720)}
+\DoxyCodeLine{17             : Title(title), Width(width), Height(height)}
+\DoxyCodeLine{18         \{}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20         \}}
+\DoxyCodeLine{21     \};}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \textcolor{comment}{// Interface representing a desktop system based window}}
+\DoxyCodeLine{24     }
+\DoxyCodeLine{28     \textcolor{keyword}{class }TERRAFORM\_CRATER\_API \mbox{\hyperlink{class_terraform_crater_1_1_window}{Window}}}
+\DoxyCodeLine{29     \{}
+\DoxyCodeLine{30     \textcolor{keyword}{public}:}
+\DoxyCodeLine{34         \textcolor{keyword}{using }EventCallbackFn = std::function<void(\mbox{\hyperlink{class_terraform_crater_1_1_event}{Event}}\&)>;}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{39         \textcolor{keyword}{virtual} \mbox{\hyperlink{class_terraform_crater_1_1_window}{\string~Window}}() \{\}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{44         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} OnUpdate() = 0;}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{50         \textcolor{keyword}{virtual} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_terraform_crater_1_1_window_a11346fd9a461ee56a16a98eac96b8faa}{GetWidth}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{55         \textcolor{keyword}{virtual} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_terraform_crater_1_1_window_af9f3a36aa389ef643fb31bb148c5e23f}{GetHeight}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57         \textcolor{comment}{// Window Attributes}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{63         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_terraform_crater_1_1_window_a911890ea6ef3710c3f9b48586d318bc4}{SetEventCallback}}(\textcolor{keyword}{const} EventCallbackFn\& callback) = 0;}
+\DoxyCodeLine{68         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_terraform_crater_1_1_window_a587005cc49c68966277bb9db94a6b88e}{SetVSync}}(\textcolor{keywordtype}{bool} enabled) = 0;}
+\DoxyCodeLine{73         \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_terraform_crater_1_1_window_a803833c8917ffebb7ff541e53f730e24}{IsVSync}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{78         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void}* \mbox{\hyperlink{class_terraform_crater_1_1_window_a2b8dae543f4af3e588a2d6bf44c5c088}{GetNativeWindow}}() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{84         \textcolor{keyword}{static} \mbox{\hyperlink{class_terraform_crater_1_1_window}{Window}}* Create(\textcolor{keyword}{const} \mbox{\hyperlink{struct_terraform_crater_1_1_window_props}{WindowProps}}\& props = \mbox{\hyperlink{struct_terraform_crater_1_1_window_props}{WindowProps}}());}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86     \};}
+\DoxyCodeLine{87 \}}
+
+\end{DoxyCode}

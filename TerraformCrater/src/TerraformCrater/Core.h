@@ -2,11 +2,18 @@
 
 
 #ifdef TC_PLATFORM_WINDOWS
+#if TC_DYNAMIC_LINK
 	#ifdef TC_BUILD_DLL
+		/**
+		 * @def Terraform Api
+		*/
 		#define TERRAFORM_CRATER_API __declspec(dllexport)
 	#else
 		#define TERRAFORM_CRATER_API __declspec(dllimport)
 	#endif
+#else
+	#define TERRAFORM_CRATER_API
+#endif
 #else
 	#error Terraform Crater Engine only supports Windows !
 #endif
@@ -20,7 +27,7 @@
 	#define TC_CORE_ASSERT(x, ...)
 #endif
 
-#define HZ_BIND_EVENT_FN(fn) [this](auto&&... args) -> decltype(auto) { return this->fn(std::forward<decltype(args)>(args)...); }
+#define TC_BIND_EVENT_FN(fn) [this](auto&&... args) -> decltype(auto) { return this->fn(std::forward<decltype(args)>(args)...); }
 
 
 #define BIT(x) (1 << x)

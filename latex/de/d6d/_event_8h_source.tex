@@ -1,0 +1,90 @@
+\hypertarget{_event_8h_source}{}\doxysection{Event.\+h}
+\label{_event_8h_source}\index{TerraformCrater/src/TerraformCrater/Events/Event.h@{TerraformCrater/src/TerraformCrater/Events/Event.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}tcpch.h"{}}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{keyword}{namespace }TerraformCrater \{}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7     \textcolor{comment}{// Events in TerraformCrater are currently blocking, meaning when an event occurs it}}
+\DoxyCodeLine{8     \textcolor{comment}{// immediately gets dispatched and must be dealt with right then an there.}}
+\DoxyCodeLine{9     \textcolor{comment}{// For the future, a better strategy might be to buffer events in an event}}
+\DoxyCodeLine{10     \textcolor{comment}{// bus and process them during the "{}event"{} part of the update stage.}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{15     \textcolor{keyword}{enum class} EventType}
+\DoxyCodeLine{16     \{}
+\DoxyCodeLine{17         None = 0,}
+\DoxyCodeLine{18         WindowClose, WindowResize, WindowFocus, WindowLostFocus, WindowMoved,}
+\DoxyCodeLine{19         AppTick, AppUpdate, AppRender,}
+\DoxyCodeLine{20         KeyPressed, KeyReleased, KeyTyped,}
+\DoxyCodeLine{21         MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScrolled}
+\DoxyCodeLine{22     \};}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{27     \textcolor{keyword}{enum} EventCategory}
+\DoxyCodeLine{28     \{}
+\DoxyCodeLine{29         None = 0,}
+\DoxyCodeLine{30         EventCategoryApplication = BIT(0),}
+\DoxyCodeLine{31         EventCategoryInput = BIT(1),}
+\DoxyCodeLine{32         EventCategoryKeyboard = BIT(2),}
+\DoxyCodeLine{33         EventCategoryMouse = BIT(3),}
+\DoxyCodeLine{34         EventCategoryMouseButton = BIT(4)}
+\DoxyCodeLine{35     \};}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#define EVENT\_CLASS\_TYPE(type) static EventType GetStaticType() \{ return EventType::type; \}\(\backslash\)}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{                                virtual EventType GetEventType() const override \{ return GetStaticType(); \}\(\backslash\)}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{                                virtual const char* GetName() const override \{ return \#type; \}}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#define EVENT\_CLASS\_CATEGORY(category) virtual int GetCategoryFlags() const override \{ return category; \}}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{52     \textcolor{keyword}{class }\mbox{\hyperlink{class_terraform_crater_1_1_event}{Event}}}
+\DoxyCodeLine{53     \{}
+\DoxyCodeLine{54     \textcolor{keyword}{public}:}
+\DoxyCodeLine{55         \textcolor{keyword}{virtual} \mbox{\hyperlink{class_terraform_crater_1_1_event}{\string~Event}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57         \textcolor{keywordtype}{bool} Handled = \textcolor{keyword}{false};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59         \textcolor{keyword}{virtual} EventType GetEventType() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{60         \textcolor{keyword}{virtual} \textcolor{keyword}{const} \textcolor{keywordtype}{char}* GetName() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{61         \textcolor{keyword}{virtual} \textcolor{keywordtype}{int} GetCategoryFlags() \textcolor{keyword}{const} = 0;}
+\DoxyCodeLine{62         \textcolor{keyword}{virtual} std::string ToString()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} GetName(); \}}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64         \textcolor{keywordtype}{bool} IsInCategory(EventCategory category)}
+\DoxyCodeLine{65         \{}
+\DoxyCodeLine{66             \textcolor{keywordflow}{return} GetCategoryFlags() \& category;}
+\DoxyCodeLine{67         \}}
+\DoxyCodeLine{68     \};}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{73     \textcolor{keyword}{class }\mbox{\hyperlink{class_terraform_crater_1_1_event_dispatcher}{EventDispatcher}}}
+\DoxyCodeLine{74     \{}
+\DoxyCodeLine{75     \textcolor{keyword}{public}:}
+\DoxyCodeLine{80         \mbox{\hyperlink{class_terraform_crater_1_1_event_dispatcher_a14e3c18b3c46ba0e76c0858672b35bbf}{EventDispatcher}}(\mbox{\hyperlink{class_terraform_crater_1_1_event}{Event}}\& event)}
+\DoxyCodeLine{81             : m\_Event(event)}
+\DoxyCodeLine{82         \{}
+\DoxyCodeLine{83         \}}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85         \textcolor{comment}{// F will be deduced by the compiler}}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{94         \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} F>}
+\DoxyCodeLine{95         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_terraform_crater_1_1_event_dispatcher_a125d75042639efe8dd128d81333162ae}{Dispatch}}(\textcolor{keyword}{const} F\& func)}
+\DoxyCodeLine{96         \{}
+\DoxyCodeLine{97             \textcolor{keywordflow}{if} (m\_Event.GetEventType() == T::GetStaticType())}
+\DoxyCodeLine{98             \{}
+\DoxyCodeLine{99                 m\_Event.Handled |= func(\textcolor{keyword}{static\_cast<}T\&\textcolor{keyword}{>}(m\_Event));}
+\DoxyCodeLine{100                 \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{101             \}}
+\DoxyCodeLine{102             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{103         \}}
+\DoxyCodeLine{104     \textcolor{keyword}{private}:}
+\DoxyCodeLine{108         \mbox{\hyperlink{class_terraform_crater_1_1_event}{Event}}\& m\_Event;}
+\DoxyCodeLine{109     \};}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{117     \textcolor{keyword}{inline} std::ostream\& operator<<(std::ostream\& os, \textcolor{keyword}{const} Event\& e)}
+\DoxyCodeLine{118     \{}
+\DoxyCodeLine{119         \textcolor{keywordflow}{return} os << e.ToString();}
+\DoxyCodeLine{120     \}}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122 \}}
+
+\end{DoxyCode}

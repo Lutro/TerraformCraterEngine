@@ -9,6 +9,9 @@ namespace TerraformCrater {
 	// For the future, a better strategy might be to buffer events in an event
 	// bus and process them during the "event" part of the update stage.
 
+	/**
+	 * @brief 
+	*/
 	enum class EventType
 	{
 		None = 0,
@@ -18,6 +21,9 @@ namespace TerraformCrater {
 		MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScrolled
 	};
 
+	/**
+	 * @brief 
+	*/
 	enum EventCategory
 	{
 		None = 0,
@@ -28,12 +34,21 @@ namespace TerraformCrater {
 		EventCategoryMouseButton = BIT(4)
 	};
 
+/**
+* @brief
+*/
 #define EVENT_CLASS_TYPE(type) static EventType GetStaticType() { return EventType::type; }\
 								virtual EventType GetEventType() const override { return GetStaticType(); }\
 								virtual const char* GetName() const override { return #type; }
 
+/**
+* @brief
+*/
 #define EVENT_CLASS_CATEGORY(category) virtual int GetCategoryFlags() const override { return category; }
 
+	/**
+	 * @brief 
+	*/
 	class Event
 	{
 	public:
@@ -52,15 +67,30 @@ namespace TerraformCrater {
 		}
 	};
 
+	/**
+	 * @brief 
+	*/
 	class EventDispatcher
 	{
 	public:
+		/**
+		 * @brief 
+		 * @param event 
+		*/
 		EventDispatcher(Event& event)
 			: m_Event(event)
 		{
 		}
 
 		// F will be deduced by the compiler
+
+		/**
+		 * @brief 
+		 * @tparam T 
+		 * @tparam F 
+		 * @param func 
+		 * @return 
+		*/
 		template<typename T, typename F>
 		bool Dispatch(const F& func)
 		{
@@ -72,9 +102,18 @@ namespace TerraformCrater {
 			return false;
 		}
 	private:
+		/**
+		 * @brief 
+		*/
 		Event& m_Event;
 	};
 
+	/**
+	 * @brief 
+	 * @param os 
+	 * @param e 
+	 * @return 
+	*/
 	inline std::ostream& operator<<(std::ostream& os, const Event& e)
 	{
 		return os << e.ToString();

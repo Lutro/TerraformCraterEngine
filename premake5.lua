@@ -17,6 +17,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "TerraformCrater/vendor/GLFW/include"
 IncludeDir["Glad"] = "TerraformCrater/vendor/Glad/include"
 IncludeDir["ImGui"] = "TerraformCrater/vendor/imgui"
+IncludeDir["glm"] = "TerraformCrater/vendor/glm"
 
 include "TerraformCrater/vendor/GLFW"
 include "TerraformCrater/vendor/Glad"
@@ -25,8 +26,10 @@ include "TerraformCrater/vendor/imgui"
 
 project "TerraformCrater"
 	location "TerraformCrater"
-	kind "SharedLib"
+	kind "StaticLib"
 	language "C++"
+	cppdialect "C++17"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -37,8 +40,15 @@ project "TerraformCrater"
 	files 
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl",
+	}
 
+	defines
+	{
+		"_CRT_SECURE_NO_WARNINGS",
+		"GLFW_INCLUDE_NONE"
 	}
 
 	includedirs
@@ -47,7 +57,8 @@ project "TerraformCrater"
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
-		"%{IncludeDir.ImGui}"
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.glm}"
 	}
 
 	links
@@ -60,7 +71,7 @@ project "TerraformCrater"
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
+		staticruntime "on"
 		systemversion "latest"
 
 		defines
@@ -70,25 +81,18 @@ project "TerraformCrater"
 			"GLFW_INCLUDE_NONE"
 		}
 
-		postbuildcommands
-		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
-		}
 
 	filter "configurations:Debug"
 		defines "TC_DEBUG"
-		buildoptions "/MDd"
-		symbols "On"
+		symbols "on"
 
 	filter "configurations:Release"
 		defines "TC_RELEASE"
-		buildoptions "/MD"
-		optimize "On"
+		optimize "on"
 
 	filter "configurations:Dist"
 		defines "TC_DIST"
-		buildoptions "/MD"
-		optimize "On"
+		optimize "on"
 
 
 
@@ -97,8 +101,9 @@ project "TerraformCrater"
 project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
-
 	language "C++"
+	cppdialect "C++17"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -113,7 +118,9 @@ project "Sandbox"
 	includedirs
 	{
 		"TerraformCrater/vendor/spdlog/include",
-		"TerraformCrater/src"
+		"TerraformCrater/src",
+		"TerraformCrater/vendor",
+		"%{IncludeDir.glm}"
 	}
 
 	links 
@@ -122,8 +129,6 @@ project "Sandbox"
 	}
 
 	filter "system:windows"
-		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
@@ -134,15 +139,12 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "TC_DEBUG"
-		buildoptions "/MDd"
-		symbols "On"
+		symbols "on"
 
 	filter "configurations:Release"
 		defines "TC_RELEASE"
-		buildoptions "/MD"
-		optimize "On"
+		optimize "on"
 
 	filter "configurations:Dist"
 		defines "TC_DIST"
-		buildoptions "/MD"
-		optimize "On"
+		optimize "on"

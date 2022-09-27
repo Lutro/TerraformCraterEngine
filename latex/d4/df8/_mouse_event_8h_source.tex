@@ -1,0 +1,102 @@
+\hypertarget{_mouse_event_8h_source}{}\doxysection{Mouse\+Event.\+h}
+\label{_mouse_event_8h_source}\index{TerraformCrater/src/TerraformCrater/Events/MouseEvent.h@{TerraformCrater/src/TerraformCrater/Events/MouseEvent.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}Event.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}TerraformCrater/Core/MouseCodes.h"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{namespace }TerraformCrater \{}
+\DoxyCodeLine{10     \textcolor{keyword}{class }\mbox{\hyperlink{class_terraform_crater_1_1_mouse_moved_event}{MouseMovedEvent}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_terraform_crater_1_1_event}{Event}}}
+\DoxyCodeLine{11     \{}
+\DoxyCodeLine{12     \textcolor{keyword}{public}:}
+\DoxyCodeLine{13         \mbox{\hyperlink{class_terraform_crater_1_1_mouse_moved_event}{MouseMovedEvent}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float} x, \textcolor{keyword}{const} \textcolor{keywordtype}{float} y)}
+\DoxyCodeLine{14             : m\_MouseX(x), m\_MouseY(y) \{\}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16         \textcolor{keywordtype}{float} GetX()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_MouseX; \}}
+\DoxyCodeLine{17         \textcolor{keywordtype}{float} GetY()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_MouseY; \}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19         std::string ToString()\textcolor{keyword}{ const override}}
+\DoxyCodeLine{20 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{21             std::stringstream ss;}
+\DoxyCodeLine{22             ss << \textcolor{stringliteral}{"{}MouseMovedEvent: "{}} << m\_MouseX << \textcolor{stringliteral}{"{}, "{}} << m\_MouseY;}
+\DoxyCodeLine{23             \textcolor{keywordflow}{return} ss.str();}
+\DoxyCodeLine{24         \}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26         EVENT\_CLASS\_TYPE(MouseMoved)}
+\DoxyCodeLine{27             EVENT\_CLASS\_CATEGORY(EventCategoryMouse | EventCategoryInput)}
+\DoxyCodeLine{28     \textcolor{keyword}{private}:}
+\DoxyCodeLine{29         \textcolor{keywordtype}{float} m\_MouseX, m\_MouseY;}
+\DoxyCodeLine{30     \};}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{35     \textcolor{keyword}{class }\mbox{\hyperlink{class_terraform_crater_1_1_mouse_scrolled_event}{MouseScrolledEvent}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_terraform_crater_1_1_event}{Event}}}
+\DoxyCodeLine{36     \{}
+\DoxyCodeLine{37     \textcolor{keyword}{public}:}
+\DoxyCodeLine{38         \mbox{\hyperlink{class_terraform_crater_1_1_mouse_scrolled_event}{MouseScrolledEvent}}(\textcolor{keyword}{const} \textcolor{keywordtype}{float} xOffset, \textcolor{keyword}{const} \textcolor{keywordtype}{float} yOffset)}
+\DoxyCodeLine{39             : m\_XOffset(xOffset), m\_YOffset(yOffset) \{\}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41         \textcolor{keywordtype}{float} GetXOffset()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_XOffset; \}}
+\DoxyCodeLine{42         \textcolor{keywordtype}{float} GetYOffset()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_YOffset; \}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44         std::string ToString()\textcolor{keyword}{ const override}}
+\DoxyCodeLine{45 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{46             std::stringstream ss;}
+\DoxyCodeLine{47             ss << \textcolor{stringliteral}{"{}MouseScrolledEvent: "{}} << GetXOffset() << \textcolor{stringliteral}{"{}, "{}} << GetYOffset();}
+\DoxyCodeLine{48             \textcolor{keywordflow}{return} ss.str();}
+\DoxyCodeLine{49         \}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51         EVENT\_CLASS\_TYPE(MouseScrolled)}
+\DoxyCodeLine{52             EVENT\_CLASS\_CATEGORY(EventCategoryMouse | EventCategoryInput)}
+\DoxyCodeLine{53     \textcolor{keyword}{private}:}
+\DoxyCodeLine{54         \textcolor{keywordtype}{float} m\_XOffset, m\_YOffset;}
+\DoxyCodeLine{55     \};}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{60     \textcolor{keyword}{class }\mbox{\hyperlink{class_terraform_crater_1_1_mouse_button_event}{MouseButtonEvent}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_terraform_crater_1_1_event}{Event}}}
+\DoxyCodeLine{61     \{}
+\DoxyCodeLine{62     \textcolor{keyword}{public}:}
+\DoxyCodeLine{63         MouseCode GetMouseButton()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_Button; \}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65         EVENT\_CLASS\_CATEGORY(EventCategoryMouse | EventCategoryInput | EventCategoryMouseButton)}
+\DoxyCodeLine{66     \textcolor{keyword}{protected}:}
+\DoxyCodeLine{67         \mbox{\hyperlink{class_terraform_crater_1_1_mouse_button_event}{MouseButtonEvent}}(\textcolor{keyword}{const} MouseCode button)}
+\DoxyCodeLine{68             : m\_Button(button) \{\}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70         MouseCode m\_Button;}
+\DoxyCodeLine{71     \};}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{76     \textcolor{keyword}{class }\mbox{\hyperlink{class_terraform_crater_1_1_mouse_button_pressed_event}{MouseButtonPressedEvent}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_terraform_crater_1_1_mouse_button_event}{MouseButtonEvent}}}
+\DoxyCodeLine{77     \{}
+\DoxyCodeLine{78     \textcolor{keyword}{public}:}
+\DoxyCodeLine{79         \mbox{\hyperlink{class_terraform_crater_1_1_mouse_button_pressed_event}{MouseButtonPressedEvent}}(\textcolor{keyword}{const} MouseCode button)}
+\DoxyCodeLine{80             : \mbox{\hyperlink{class_terraform_crater_1_1_mouse_button_event}{MouseButtonEvent}}(button) \{\}}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82         std::string ToString()\textcolor{keyword}{ const override}}
+\DoxyCodeLine{83 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{84             std::stringstream ss;}
+\DoxyCodeLine{85             ss << \textcolor{stringliteral}{"{}MouseButtonPressedEvent: "{}} << m\_Button;}
+\DoxyCodeLine{86             \textcolor{keywordflow}{return} ss.str();}
+\DoxyCodeLine{87         \}}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89         EVENT\_CLASS\_TYPE(MouseButtonPressed)}
+\DoxyCodeLine{90     \};}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{95     \textcolor{keyword}{class }\mbox{\hyperlink{class_terraform_crater_1_1_mouse_button_released_event}{MouseButtonReleasedEvent}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_terraform_crater_1_1_mouse_button_event}{MouseButtonEvent}}}
+\DoxyCodeLine{96     \{}
+\DoxyCodeLine{97     \textcolor{keyword}{public}:}
+\DoxyCodeLine{98         \mbox{\hyperlink{class_terraform_crater_1_1_mouse_button_released_event}{MouseButtonReleasedEvent}}(\textcolor{keyword}{const} MouseCode button)}
+\DoxyCodeLine{99             : \mbox{\hyperlink{class_terraform_crater_1_1_mouse_button_event}{MouseButtonEvent}}(button) \{\}}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101         std::string ToString()\textcolor{keyword}{ const override}}
+\DoxyCodeLine{102 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{103             std::stringstream ss;}
+\DoxyCodeLine{104             ss << \textcolor{stringliteral}{"{}MouseButtonReleasedEvent: "{}} << m\_Button;}
+\DoxyCodeLine{105             \textcolor{keywordflow}{return} ss.str();}
+\DoxyCodeLine{106         \}}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108         EVENT\_CLASS\_TYPE(MouseButtonReleased)}
+\DoxyCodeLine{109     \};}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111 \}}
+
+\end{DoxyCode}

@@ -1,0 +1,70 @@
+\hypertarget{_application_event_8h_source}{}\doxysection{Application\+Event.\+h}
+\label{_application_event_8h_source}\index{TerraformCrater/src/TerraformCrater/Events/ApplicationEvent.h@{TerraformCrater/src/TerraformCrater/Events/ApplicationEvent.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}Event.h"{}}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{keyword}{namespace }TerraformCrater \{}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7     \textcolor{keyword}{class }\mbox{\hyperlink{class_terraform_crater_1_1_window_resize_event}{WindowResizeEvent}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_terraform_crater_1_1_event}{Event}}}
+\DoxyCodeLine{8     \{}
+\DoxyCodeLine{9     \textcolor{keyword}{public}:}
+\DoxyCodeLine{10         \mbox{\hyperlink{class_terraform_crater_1_1_window_resize_event}{WindowResizeEvent}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} width, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} height)}
+\DoxyCodeLine{11             : m\_Width(width), m\_Height(height) \{\}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} GetWidth()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_Width; \}}
+\DoxyCodeLine{14         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} GetHeight()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_Height; \}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16         std::string ToString()\textcolor{keyword}{ const override}}
+\DoxyCodeLine{17 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{18             std::stringstream ss;}
+\DoxyCodeLine{19             ss << \textcolor{stringliteral}{"{}WindowResizeEvent: "{}} << m\_Width << \textcolor{stringliteral}{"{}, "{}} << m\_Height;}
+\DoxyCodeLine{20             \textcolor{keywordflow}{return} ss.str();}
+\DoxyCodeLine{21         \}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23         EVENT\_CLASS\_TYPE(WindowResize)}
+\DoxyCodeLine{24             EVENT\_CLASS\_CATEGORY(EventCategoryApplication)}
+\DoxyCodeLine{25     \textcolor{keyword}{private}:}
+\DoxyCodeLine{26         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} m\_Width, m\_Height;}
+\DoxyCodeLine{27     \};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keyword}{class }\mbox{\hyperlink{class_terraform_crater_1_1_window_close_event}{WindowCloseEvent}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_terraform_crater_1_1_event}{Event}}}
+\DoxyCodeLine{30     \{}
+\DoxyCodeLine{31     \textcolor{keyword}{public}:}
+\DoxyCodeLine{32         \mbox{\hyperlink{class_terraform_crater_1_1_window_close_event}{WindowCloseEvent}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34         EVENT\_CLASS\_TYPE(WindowClose)}
+\DoxyCodeLine{35             EVENT\_CLASS\_CATEGORY(EventCategoryApplication)}
+\DoxyCodeLine{36     \};}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{keyword}{class }\mbox{\hyperlink{class_terraform_crater_1_1_app_tick_event}{AppTickEvent}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_terraform_crater_1_1_event}{Event}}}
+\DoxyCodeLine{39     \{}
+\DoxyCodeLine{40     \textcolor{keyword}{public}:}
+\DoxyCodeLine{41         \mbox{\hyperlink{class_terraform_crater_1_1_app_tick_event}{AppTickEvent}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43         EVENT\_CLASS\_TYPE(AppTick)}
+\DoxyCodeLine{44             EVENT\_CLASS\_CATEGORY(EventCategoryApplication)}
+\DoxyCodeLine{45     \};}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \textcolor{keyword}{class }\mbox{\hyperlink{class_terraform_crater_1_1_app_update_event}{AppUpdateEvent}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_terraform_crater_1_1_event}{Event}}}
+\DoxyCodeLine{48     \{}
+\DoxyCodeLine{49     \textcolor{keyword}{public}:}
+\DoxyCodeLine{50         \mbox{\hyperlink{class_terraform_crater_1_1_app_update_event}{AppUpdateEvent}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52         EVENT\_CLASS\_TYPE(AppUpdate)}
+\DoxyCodeLine{53             EVENT\_CLASS\_CATEGORY(EventCategoryApplication)}
+\DoxyCodeLine{54     \};}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{keyword}{class }\mbox{\hyperlink{class_terraform_crater_1_1_app_render_event}{AppRenderEvent}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_terraform_crater_1_1_event}{Event}}}
+\DoxyCodeLine{57     \{}
+\DoxyCodeLine{58     \textcolor{keyword}{public}:}
+\DoxyCodeLine{59         \mbox{\hyperlink{class_terraform_crater_1_1_app_render_event}{AppRenderEvent}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61         EVENT\_CLASS\_TYPE(AppRender)}
+\DoxyCodeLine{62             EVENT\_CLASS\_CATEGORY(EventCategoryApplication)}
+\DoxyCodeLine{63     \};}
+\DoxyCodeLine{64 \}}
+
+\end{DoxyCode}

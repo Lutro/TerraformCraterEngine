@@ -1,0 +1,78 @@
+\hypertarget{_key_event_8h_source}{}\doxysection{Key\+Event.\+h}
+\label{_key_event_8h_source}\index{TerraformCrater/src/TerraformCrater/Events/KeyEvent.h@{TerraformCrater/src/TerraformCrater/Events/KeyEvent.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}Event.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}TerraformCrater/Core/KeyCodes.h"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{namespace }TerraformCrater \{}
+\DoxyCodeLine{11     \textcolor{keyword}{class }TERRAFORM\_CRATER\_API \mbox{\hyperlink{class_terraform_crater_1_1_key_event}{KeyEvent}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_terraform_crater_1_1_event}{Event}}}
+\DoxyCodeLine{12     \{}
+\DoxyCodeLine{13     \textcolor{keyword}{public}:}
+\DoxyCodeLine{14         KeyCode GetKeyCode()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_KeyCode; \}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16         EVENT\_CLASS\_CATEGORY(EventCategoryKeyboard | EventCategoryInput)}
+\DoxyCodeLine{17     \textcolor{keyword}{protected}:}
+\DoxyCodeLine{18         \mbox{\hyperlink{class_terraform_crater_1_1_key_event}{KeyEvent}}(\textcolor{keyword}{const} KeyCode keycode)}
+\DoxyCodeLine{19             : m\_KeyCode(keycode) \{\}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21         KeyCode m\_KeyCode;}
+\DoxyCodeLine{22     \};}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{27     \textcolor{keyword}{class }TERRAFORM\_CRATER\_API \mbox{\hyperlink{class_terraform_crater_1_1_key_pressed_event}{KeyPressedEvent}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_terraform_crater_1_1_key_event}{KeyEvent}}}
+\DoxyCodeLine{28     \{}
+\DoxyCodeLine{29     \textcolor{keyword}{public}:}
+\DoxyCodeLine{30         \mbox{\hyperlink{class_terraform_crater_1_1_key_pressed_event}{KeyPressedEvent}}(\textcolor{keyword}{const} KeyCode keycode, \textcolor{keywordtype}{bool} isRepeat = \textcolor{keyword}{false})}
+\DoxyCodeLine{31             : \mbox{\hyperlink{class_terraform_crater_1_1_key_event}{KeyEvent}}(keycode), m\_IsRepeat(isRepeat) \{\}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33         \textcolor{keywordtype}{bool} IsRepeat()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} m\_IsRepeat; \}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35         std::string ToString()\textcolor{keyword}{ const override}}
+\DoxyCodeLine{36 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{37             std::stringstream ss;}
+\DoxyCodeLine{38             ss << \textcolor{stringliteral}{"{}KeyPressedEvent: "{}} << m\_KeyCode << \textcolor{stringliteral}{"{} (repeat = "{}} << m\_IsRepeat << \textcolor{stringliteral}{"{})"{}};}
+\DoxyCodeLine{39             \textcolor{keywordflow}{return} ss.str();}
+\DoxyCodeLine{40         \}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42         EVENT\_CLASS\_TYPE(KeyPressed)}
+\DoxyCodeLine{43     \textcolor{keyword}{private}:}
+\DoxyCodeLine{44         \textcolor{keywordtype}{bool} m\_IsRepeat;}
+\DoxyCodeLine{45     \};}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{50     \textcolor{keyword}{class }TERRAFORM\_CRATER\_API \mbox{\hyperlink{class_terraform_crater_1_1_key_released_event}{KeyReleasedEvent}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_terraform_crater_1_1_key_event}{KeyEvent}}}
+\DoxyCodeLine{51     \{}
+\DoxyCodeLine{52     \textcolor{keyword}{public}:}
+\DoxyCodeLine{53         \mbox{\hyperlink{class_terraform_crater_1_1_key_released_event}{KeyReleasedEvent}}(\textcolor{keyword}{const} KeyCode keycode)}
+\DoxyCodeLine{54             : \mbox{\hyperlink{class_terraform_crater_1_1_key_event}{KeyEvent}}(keycode) \{\}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56         std::string ToString()\textcolor{keyword}{ const override}}
+\DoxyCodeLine{57 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{58             std::stringstream ss;}
+\DoxyCodeLine{59             ss << \textcolor{stringliteral}{"{}KeyReleasedEvent: "{}} << m\_KeyCode;}
+\DoxyCodeLine{60             \textcolor{keywordflow}{return} ss.str();}
+\DoxyCodeLine{61         \}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63         EVENT\_CLASS\_TYPE(KeyReleased)}
+\DoxyCodeLine{64     \};}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{69     \textcolor{keyword}{class }TERRAFORM\_CRATER\_API \mbox{\hyperlink{class_terraform_crater_1_1_key_typed_event}{KeyTypedEvent}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_terraform_crater_1_1_key_event}{KeyEvent}}}
+\DoxyCodeLine{70     \{}
+\DoxyCodeLine{71     \textcolor{keyword}{public}:}
+\DoxyCodeLine{72         \mbox{\hyperlink{class_terraform_crater_1_1_key_typed_event}{KeyTypedEvent}}(\textcolor{keyword}{const} KeyCode keycode)}
+\DoxyCodeLine{73             : \mbox{\hyperlink{class_terraform_crater_1_1_key_event}{KeyEvent}}(keycode) \{\}}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75         std::string ToString()\textcolor{keyword}{ const override}}
+\DoxyCodeLine{76 \textcolor{keyword}{        }\{}
+\DoxyCodeLine{77             std::stringstream ss;}
+\DoxyCodeLine{78             ss << \textcolor{stringliteral}{"{}KeyTypedEvent: "{}} << m\_KeyCode;}
+\DoxyCodeLine{79             \textcolor{keywordflow}{return} ss.str();}
+\DoxyCodeLine{80         \}}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82         EVENT\_CLASS\_TYPE(KeyTyped)}
+\DoxyCodeLine{83     \};}
+\DoxyCodeLine{84 \}}
+
+\end{DoxyCode}

@@ -1,0 +1,52 @@
+\hypertarget{_application_8h_source}{}\doxysection{Application.\+h}
+\label{_application_8h_source}\index{TerraformCrater/src/TerraformCrater/Application.h@{TerraformCrater/src/TerraformCrater/Application.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}Core.h"{}}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}Window.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}TerraformCrater/LayerStack.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}TerraformCrater/Events/Event.h"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}TerraformCrater/Events/ApplicationEvent.h"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}TerraformCrater/ImGui/ImGuiLayer.h"{}}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{namespace }TerraformCrater \{}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15     \textcolor{keyword}{class }TERRAFORM\_CRATER\_API \mbox{\hyperlink{class_terraform_crater_1_1_application}{Application}}}
+\DoxyCodeLine{16     \{}
+\DoxyCodeLine{17     \textcolor{keyword}{public}:}
+\DoxyCodeLine{18         \mbox{\hyperlink{class_terraform_crater_1_1_application}{Application}}();}
+\DoxyCodeLine{19         \textcolor{keyword}{virtual} \mbox{\hyperlink{class_terraform_crater_1_1_application}{\string~Application}}();}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21         \textcolor{keywordtype}{void} Run();}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23         \textcolor{keywordtype}{void} OnEvent(\mbox{\hyperlink{class_terraform_crater_1_1_event}{Event}}\& e);}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25         \textcolor{keywordtype}{void} PushLayer(\mbox{\hyperlink{class_terraform_crater_1_1_layer}{Layer}}* layer);}
+\DoxyCodeLine{26         \textcolor{keywordtype}{void} PushOverlay(\mbox{\hyperlink{class_terraform_crater_1_1_layer}{Layer}}* overlay);}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28         \textcolor{keyword}{inline} \mbox{\hyperlink{class_terraform_crater_1_1_window}{Window}}\& GetWindow() \{ \textcolor{keywordflow}{return} *m\_Window;  \}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30         \textcolor{keyword}{inline} \textcolor{keyword}{static} \mbox{\hyperlink{class_terraform_crater_1_1_application}{Application}}\& Get() \{ \textcolor{keywordflow}{return} *s\_Instance; \}}
+\DoxyCodeLine{31     \textcolor{keyword}{private}:}
+\DoxyCodeLine{32         \textcolor{keywordtype}{bool} OnWindowClose(\mbox{\hyperlink{class_terraform_crater_1_1_window_close_event}{WindowCloseEvent}}\& e);}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34         std::unique\_ptr<Window> m\_Window;}
+\DoxyCodeLine{35         \mbox{\hyperlink{class_terraform_crater_1_1_im_gui_layer}{ImGuiLayer}}* m\_ImGuiLayer;}
+\DoxyCodeLine{36         \textcolor{keywordtype}{bool} m\_Running = \textcolor{keyword}{true};}
+\DoxyCodeLine{37         \mbox{\hyperlink{class_terraform_crater_1_1_layer_stack}{LayerStack}} m\_LayerStack;}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39         \textcolor{keyword}{static} \mbox{\hyperlink{class_terraform_crater_1_1_application}{Application}}* s\_Instance;}
+\DoxyCodeLine{40     \};}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \textcolor{comment}{// To be defined in CLIENT}}
+\DoxyCodeLine{43     \mbox{\hyperlink{class_terraform_crater_1_1_application}{Application}}* CreateApplication();}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \}}
+\DoxyCodeLine{46 }
+
+\end{DoxyCode}

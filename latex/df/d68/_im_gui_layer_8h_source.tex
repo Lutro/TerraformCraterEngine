@@ -1,0 +1,42 @@
+\hypertarget{_im_gui_layer_8h_source}{}\doxysection{Im\+Gui\+Layer.\+h}
+\label{_im_gui_layer_8h_source}\index{TerraformCrater/src/TerraformCrater/ImGui/ImGuiLayer.h@{TerraformCrater/src/TerraformCrater/ImGui/ImGuiLayer.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}TerraformCrater/Layer.h"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}TerraformCrater/Events/ApplicationEvent.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}TerraformCrater/Events/KeyEvent.h"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}TerraformCrater/Events/MouseEvent.h"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{namespace }TerraformCrater \{}
+\DoxyCodeLine{16     \textcolor{keyword}{class }TERRAFORM\_CRATER\_API \mbox{\hyperlink{class_terraform_crater_1_1_im_gui_layer}{ImGuiLayer}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_terraform_crater_1_1_layer}{Layer}}}
+\DoxyCodeLine{17     \{}
+\DoxyCodeLine{18     \textcolor{keyword}{public}:}
+\DoxyCodeLine{22         \mbox{\hyperlink{class_terraform_crater_1_1_im_gui_layer}{ImGuiLayer}}();}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{27         \mbox{\hyperlink{class_terraform_crater_1_1_im_gui_layer}{\string~ImGuiLayer}}();}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{32         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} OnAttach();}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{37         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} OnDetach();}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{42         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} OnImGuiRender() \textcolor{keyword}{override};}
+\DoxyCodeLine{43         }
+\DoxyCodeLine{47         \textcolor{keywordtype}{void} Begin();}
+\DoxyCodeLine{51         \textcolor{keywordtype}{void} End();}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{56         \textcolor{keywordtype}{void} SetDarkThemeColors();      }
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \textcolor{keyword}{private}:}
+\DoxyCodeLine{62         \textcolor{keywordtype}{float} m\_Time = 0.0f;}
+\DoxyCodeLine{63     \};}
+\DoxyCodeLine{64 \}}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 }
+
+\end{DoxyCode}

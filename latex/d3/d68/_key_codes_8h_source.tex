@@ -1,0 +1,150 @@
+\hypertarget{_key_codes_8h_source}{}\doxysection{Key\+Codes.\+h}
+\label{_key_codes_8h_source}\index{TerraformCrater/src/TerraformCrater/Core/KeyCodes.h@{TerraformCrater/src/TerraformCrater/Core/KeyCodes.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{keyword}{namespace }TerraformCrater}
+\DoxyCodeLine{4 \{}
+\DoxyCodeLine{8     \textcolor{keyword}{using }KeyCode = uint16\_t;}
+\DoxyCodeLine{9     }
+\DoxyCodeLine{10     \textcolor{keyword}{namespace }Key}
+\DoxyCodeLine{11     \{}
+\DoxyCodeLine{15         enum : KeyCode}
+\DoxyCodeLine{16         \{}
+\DoxyCodeLine{17             \textcolor{comment}{// From glfw3.h}}
+\DoxyCodeLine{18             Space               = 32,}
+\DoxyCodeLine{19             Apostrophe          = 39, \textcolor{comment}{/* ' */}}
+\DoxyCodeLine{20             Comma               = 44, \textcolor{comment}{/* , */}}
+\DoxyCodeLine{21             Minus               = 45, \textcolor{comment}{/* -\/ */}}
+\DoxyCodeLine{22             Period              = 46, \textcolor{comment}{/* . */}}
+\DoxyCodeLine{23             Slash               = 47, \textcolor{comment}{/* / */}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25             D0                  = 48, \textcolor{comment}{/* 0 */}}
+\DoxyCodeLine{26             D1                  = 49, \textcolor{comment}{/* 1 */}}
+\DoxyCodeLine{27             D2                  = 50, \textcolor{comment}{/* 2 */}}
+\DoxyCodeLine{28             D3                  = 51, \textcolor{comment}{/* 3 */}}
+\DoxyCodeLine{29             D4                  = 52, \textcolor{comment}{/* 4 */}}
+\DoxyCodeLine{30             D5                  = 53, \textcolor{comment}{/* 5 */}}
+\DoxyCodeLine{31             D6                  = 54, \textcolor{comment}{/* 6 */}}
+\DoxyCodeLine{32             D7                  = 55, \textcolor{comment}{/* 7 */}}
+\DoxyCodeLine{33             D8                  = 56, \textcolor{comment}{/* 8 */}}
+\DoxyCodeLine{34             D9                  = 57, \textcolor{comment}{/* 9 */}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36             Semicolon           = 59, \textcolor{comment}{/* ; */}}
+\DoxyCodeLine{37             Equal               = 61, \textcolor{comment}{/* = */}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39             A                   = 65,}
+\DoxyCodeLine{40             B                   = 66,}
+\DoxyCodeLine{41             C                   = 67,}
+\DoxyCodeLine{42             D                   = 68,}
+\DoxyCodeLine{43             E                   = 69,}
+\DoxyCodeLine{44             F                   = 70,}
+\DoxyCodeLine{45             G                   = 71,}
+\DoxyCodeLine{46             H                   = 72,}
+\DoxyCodeLine{47             I                   = 73,}
+\DoxyCodeLine{48             J                   = 74,}
+\DoxyCodeLine{49             K                   = 75,}
+\DoxyCodeLine{50             L                   = 76,}
+\DoxyCodeLine{51             M                   = 77,}
+\DoxyCodeLine{52             N                   = 78,}
+\DoxyCodeLine{53             O                   = 79,}
+\DoxyCodeLine{54             P                   = 80,}
+\DoxyCodeLine{55             Q                   = 81,}
+\DoxyCodeLine{56             R                   = 82,}
+\DoxyCodeLine{57             S                   = 83,}
+\DoxyCodeLine{58             T                   = 84,}
+\DoxyCodeLine{59             U                   = 85,}
+\DoxyCodeLine{60             V                   = 86,}
+\DoxyCodeLine{61             W                   = 87,}
+\DoxyCodeLine{62             X                   = 88,}
+\DoxyCodeLine{63             Y                   = 89,}
+\DoxyCodeLine{64             Z                   = 90,}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66             LeftBracket         = 91,  \textcolor{comment}{/* [ */}}
+\DoxyCodeLine{67             Backslash           = 92,  \textcolor{comment}{/* \(\backslash\) */}}
+\DoxyCodeLine{68             RightBracket        = 93,  \textcolor{comment}{/* ] */}}
+\DoxyCodeLine{69             GraveAccent         = 96,  \textcolor{comment}{/* ` */}}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71             World1              = 161, \textcolor{comment}{/* non-\/US \#1 */}}
+\DoxyCodeLine{72             World2              = 162, \textcolor{comment}{/* non-\/US \#2 */}}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74             \textcolor{comment}{/* Function keys */}}
+\DoxyCodeLine{75             Escape              = 256,}
+\DoxyCodeLine{76             Enter               = 257,}
+\DoxyCodeLine{77             Tab                 = 258,}
+\DoxyCodeLine{78             Backspace           = 259,}
+\DoxyCodeLine{79             Insert              = 260,}
+\DoxyCodeLine{80             Delete              = 261,}
+\DoxyCodeLine{81             Right               = 262,}
+\DoxyCodeLine{82             Left                = 263,}
+\DoxyCodeLine{83             Down                = 264,}
+\DoxyCodeLine{84             Up                  = 265,}
+\DoxyCodeLine{85             PageUp              = 266,}
+\DoxyCodeLine{86             PageDown            = 267,}
+\DoxyCodeLine{87             Home                = 268,}
+\DoxyCodeLine{88             End                 = 269,}
+\DoxyCodeLine{89             CapsLock            = 280,}
+\DoxyCodeLine{90             ScrollLock          = 281,}
+\DoxyCodeLine{91             NumLock             = 282,}
+\DoxyCodeLine{92             PrintScreen         = 283,}
+\DoxyCodeLine{93             Pause               = 284,}
+\DoxyCodeLine{94             F1                  = 290,}
+\DoxyCodeLine{95             F2                  = 291,}
+\DoxyCodeLine{96             F3                  = 292,}
+\DoxyCodeLine{97             F4                  = 293,}
+\DoxyCodeLine{98             F5                  = 294,}
+\DoxyCodeLine{99             F6                  = 295,}
+\DoxyCodeLine{100             F7                  = 296,}
+\DoxyCodeLine{101             F8                  = 297,}
+\DoxyCodeLine{102             F9                  = 298,}
+\DoxyCodeLine{103             F10                 = 299,}
+\DoxyCodeLine{104             F11                 = 300,}
+\DoxyCodeLine{105             F12                 = 301,}
+\DoxyCodeLine{106             F13                 = 302,}
+\DoxyCodeLine{107             F14                 = 303,}
+\DoxyCodeLine{108             F15                 = 304,}
+\DoxyCodeLine{109             F16                 = 305,}
+\DoxyCodeLine{110             F17                 = 306,}
+\DoxyCodeLine{111             F18                 = 307,}
+\DoxyCodeLine{112             F19                 = 308,}
+\DoxyCodeLine{113             F20                 = 309,}
+\DoxyCodeLine{114             F21                 = 310,}
+\DoxyCodeLine{115             F22                 = 311,}
+\DoxyCodeLine{116             F23                 = 312,}
+\DoxyCodeLine{117             F24                 = 313,}
+\DoxyCodeLine{118             F25                 = 314,}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120             \textcolor{comment}{/* Keypad */}}
+\DoxyCodeLine{121             KP0                 = 320,}
+\DoxyCodeLine{122             KP1                 = 321,}
+\DoxyCodeLine{123             KP2                 = 322,}
+\DoxyCodeLine{124             KP3                 = 323,}
+\DoxyCodeLine{125             KP4                 = 324,}
+\DoxyCodeLine{126             KP5                 = 325,}
+\DoxyCodeLine{127             KP6                 = 326,}
+\DoxyCodeLine{128             KP7                 = 327,}
+\DoxyCodeLine{129             KP8                 = 328,}
+\DoxyCodeLine{130             KP9                 = 329,}
+\DoxyCodeLine{131             KPDecimal           = 330,}
+\DoxyCodeLine{132             KPDivide            = 331,}
+\DoxyCodeLine{133             KPMultiply          = 332,}
+\DoxyCodeLine{134             KPSubtract          = 333,}
+\DoxyCodeLine{135             KPAdd               = 334,}
+\DoxyCodeLine{136             KPEnter             = 335,}
+\DoxyCodeLine{137             KPEqual             = 336,}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{139             LeftShift           = 340,}
+\DoxyCodeLine{140             LeftControl         = 341,}
+\DoxyCodeLine{141             LeftAlt             = 342,}
+\DoxyCodeLine{142             LeftSuper           = 343,}
+\DoxyCodeLine{143             RightShift          = 344,}
+\DoxyCodeLine{144             RightControl        = 345,}
+\DoxyCodeLine{145             RightAlt            = 346,}
+\DoxyCodeLine{146             RightSuper          = 347,}
+\DoxyCodeLine{147             Menu                = 348}
+\DoxyCodeLine{148         \};}
+\DoxyCodeLine{149     \}}
+\DoxyCodeLine{150 \}}
+
+\end{DoxyCode}

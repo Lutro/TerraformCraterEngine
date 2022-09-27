@@ -1,5 +1,7 @@
 #include <TerraformCrater.h>
 
+#include "imgui/imgui.h"
+
 class ExampleLayer : public TerraformCrater::Layer
 {
 public:
@@ -11,12 +13,25 @@ public:
 
 	void OnUpdate() override
 	{
-		TC_INFO("ExampleLayer::Update");
+		if (TerraformCrater::Input::IsKeyPressed(258))
+			TC_TRACE("Tab key is pressed!");
+	}
+
+	virtual void OnImGuiRender() override
+	{
+		ImGui::Begin("Test");
+		ImGui::Text("Hello World");
+		ImGui::End();
 	}
 
 	void OnEvent(TerraformCrater::Event& event) override
 	{
-		TC_TRACE("{0}", event);
+		if (event.GetEventType() == TerraformCrater::EventType::KeyPressed)
+		{
+			TerraformCrater::KeyPressedEvent& e = (TerraformCrater::KeyPressedEvent&)event;
+			TC_TRACE("{0}", (char)e.GetKeyCode());
+
+		}
 	}
 };
 
@@ -27,7 +42,6 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
-		PushOverlay(new TerraformCrater::ImGuiLayer());
 	}
 
 	~Sandbox()

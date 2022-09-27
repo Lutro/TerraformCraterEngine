@@ -1,11 +1,14 @@
 #pragma once
 
 #include "Event.h"
-#include "KeyCodes.h"
+#include "TerraformCrater/Core/KeyCodes.h"
+
 
 namespace TerraformCrater {
-
-	class KeyEvent : public Event
+	/**
+	 * @brief 
+	*/
+	class TERRAFORM_CRATER_API KeyEvent : public Event
 	{
 	public:
 		KeyCode GetKeyCode() const { return m_KeyCode; }
@@ -18,7 +21,10 @@ namespace TerraformCrater {
 		KeyCode m_KeyCode;
 	};
 
-	class KeyPressedEvent : public KeyEvent
+	/**
+	 * @brief 
+	*/
+	class TERRAFORM_CRATER_API KeyPressedEvent : public KeyEvent
 	{
 	public:
 		KeyPressedEvent(const KeyCode keycode, bool isRepeat = false)
@@ -38,7 +44,10 @@ namespace TerraformCrater {
 		bool m_IsRepeat;
 	};
 
-	class KeyReleasedEvent : public KeyEvent
+	/**
+	 * @brief 
+	*/
+	class TERRAFORM_CRATER_API KeyReleasedEvent : public KeyEvent
 	{
 	public:
 		KeyReleasedEvent(const KeyCode keycode)
@@ -54,7 +63,10 @@ namespace TerraformCrater {
 		EVENT_CLASS_TYPE(KeyReleased)
 	};
 
-	class KeyTypedEvent : public KeyEvent
+	/**
+	 * @brief 
+	*/
+	class TERRAFORM_CRATER_API KeyTypedEvent : public KeyEvent
 	{
 	public:
 		KeyTypedEvent(const KeyCode keycode)

@@ -7,6 +7,8 @@
 #include "TerraformCrater/Events/Event.h"
 #include "TerraformCrater/Events/ApplicationEvent.h"
 
+#include "TerraformCrater/ImGui/ImGuiLayer.h"
+
 
 namespace TerraformCrater {
 
@@ -30,6 +32,7 @@ namespace TerraformCrater {
 		bool OnWindowClose(WindowCloseEvent& e);
 
 		std::unique_ptr<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 

@@ -1,0 +1,33 @@
+\hypertarget{_input_8h_source}{}\doxysection{Input.\+h}
+\label{_input_8h_source}\index{TerraformCrater/src/TerraformCrater/Input.h@{TerraformCrater/src/TerraformCrater/Input.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include "{}Core/KeyCodes.h"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}Core/MouseCodes.h"{}}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <glm/glm.hpp>}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{namespace }TerraformCrater \{}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9     \textcolor{keyword}{class }TERRAFORM\_CRATER\_API \mbox{\hyperlink{class_terraform_crater_1_1_input}{Input}}}
+\DoxyCodeLine{10     \{}
+\DoxyCodeLine{11     \textcolor{keyword}{public}:}
+\DoxyCodeLine{12         \textcolor{keyword}{inline} \textcolor{keyword}{static} \textcolor{keywordtype}{bool} IsKeyPressed(\textcolor{keywordtype}{int} keycode) \{ \textcolor{keywordflow}{return} s\_Instance-\/>IsKeyPressedImpl(keycode); \}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14         \textcolor{keyword}{inline} \textcolor{keyword}{static} \textcolor{keywordtype}{bool} IsMouseButtonPressed(\textcolor{keywordtype}{int} button) \{ \textcolor{keywordflow}{return} s\_Instance-\/>IsMouseButtonPressedImpl(button); \}}
+\DoxyCodeLine{15         \textcolor{keyword}{inline} \textcolor{keyword}{static} \textcolor{keywordtype}{float} GetMouseX() \{ \textcolor{keywordflow}{return} s\_Instance-\/>GetMouseXImpl(); \}}
+\DoxyCodeLine{16         \textcolor{keyword}{inline} \textcolor{keyword}{static} \textcolor{keywordtype}{float} GetMouseY() \{ \textcolor{keywordflow}{return} s\_Instance-\/>GetMouseYImpl(); \}}
+\DoxyCodeLine{17         \textcolor{keyword}{inline} \textcolor{keyword}{static} std::pair<float, float> GetMousePosition() \{ \textcolor{keywordflow}{return} s\_Instance-\/>GetMousePositionImpl(); \}}
+\DoxyCodeLine{18     \textcolor{keyword}{protected}:}
+\DoxyCodeLine{19         \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} IsKeyPressedImpl(\textcolor{keywordtype}{int} keycode) = 0;}
+\DoxyCodeLine{20         \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} IsMouseButtonPressedImpl(\textcolor{keywordtype}{int} button) = 0;}
+\DoxyCodeLine{21         \textcolor{keyword}{virtual} std::pair<float, float> GetMousePositionImpl() = 0;}
+\DoxyCodeLine{22         \textcolor{keyword}{virtual} \textcolor{keywordtype}{float} GetMouseXImpl() = 0;}
+\DoxyCodeLine{23         \textcolor{keyword}{virtual} \textcolor{keywordtype}{float} GetMouseYImpl() = 0;}
+\DoxyCodeLine{24     \textcolor{keyword}{private}:}
+\DoxyCodeLine{25         \textcolor{keyword}{static} \mbox{\hyperlink{class_terraform_crater_1_1_input}{Input}}* s\_Instance;}
+\DoxyCodeLine{26     \};}
+\DoxyCodeLine{27 \}}
+
+\end{DoxyCode}
