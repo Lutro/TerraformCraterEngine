@@ -1,8 +1,11 @@
 #pragma once
 
 #include "TerraformCrater/Window.h"
+#include "TerraformCrater/Renderer/GraphicsContext.h"
 
 #include <GLFW/glfw3.h>
+
+
 
 namespace TerraformCrater {
 	/**
@@ -71,6 +74,11 @@ namespace TerraformCrater {
 		 * @brief 
 		*/
 		GLFWwindow* m_Window;
+
+		/**
+	 * @brief
+	*/
+		GraphicsContext* m_Context;
 
 		/**
 		 * @brief 

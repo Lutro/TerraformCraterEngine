@@ -156,6 +156,8 @@
     <ClInclude Include="src\TerraformCrater\Layer.h" />
     <ClInclude Include="src\TerraformCrater\LayerStack.h" />
     <ClInclude Include="src\TerraformCrater\Log.h" />
+    <ClInclude Include="src\TerraformCrater\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\TerraformCrater\Window.h" />
     <ClInclude Include="src\TerraformCrater\WindowsInput.h" />
     <ClInclude Include="src\tcpch.h" />
@@ -576,6 +578,7 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\TerraformCrater\Application.cpp" />
     <ClCompile Include="src\TerraformCrater\ImGui\ImGuiBuild.cpp" />
