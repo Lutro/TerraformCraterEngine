@@ -18,11 +18,11 @@ IncludeDir["GLFW"] = "TerraformCrater/vendor/GLFW/include"
 IncludeDir["Glad"] = "TerraformCrater/vendor/Glad/include"
 IncludeDir["ImGui"] = "TerraformCrater/vendor/imgui"
 IncludeDir["glm"] = "TerraformCrater/vendor/glm"
+IncludeDir["stb_image"] = "TerraformCrater/vendor/stb_image"
 
 include "TerraformCrater/vendor/GLFW"
 include "TerraformCrater/vendor/Glad"
 include "TerraformCrater/vendor/imgui"
-
 
 project "TerraformCrater"
 	location "TerraformCrater"
@@ -41,6 +41,8 @@ project "TerraformCrater"
 	{
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/stb_image/**.h",
+		"%{prj.name}/vendor/stb_image/**.cpp",
 		"%{prj.name}/vendor/glm/glm/**.hpp",
 		"%{prj.name}/vendor/glm/glm/**.inl",
 	}
@@ -58,7 +60,8 @@ project "TerraformCrater"
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
-		"%{IncludeDir.glm}"
+		"%{IncludeDir.glm}",
+                "%{IncludeDir.stb_image}",
 	}
 
 	links

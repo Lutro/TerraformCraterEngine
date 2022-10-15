@@ -1,0 +1,26 @@
+\hypertarget{_open_g_l_context_8h_source}{}\doxysection{Open\+GLContext.\+h}
+\label{_open_g_l_context_8h_source}\index{TerraformCrater/src/Platform/OpenGL/OpenGLContext.h@{TerraformCrater/src/Platform/OpenGL/OpenGLContext.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include"{}TerraformCrater/Renderer/GraphicsContext.h"{}}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{keyword}{struct }GLFWwindow;}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{namespace }TerraformCrater \{}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9     \textcolor{keyword}{class }\mbox{\hyperlink{class_terraform_crater_1_1_open_g_l_context}{OpenGLContext}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_terraform_crater_1_1_graphics_context}{GraphicsContext}}}
+\DoxyCodeLine{10     \{}
+\DoxyCodeLine{11     \textcolor{keyword}{public}:}
+\DoxyCodeLine{12         \mbox{\hyperlink{class_terraform_crater_1_1_open_g_l_context}{OpenGLContext}}(GLFWwindow* windowHandle);}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} Init() \textcolor{keyword}{override};}
+\DoxyCodeLine{15         \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} SwapBuffers() \textcolor{keyword}{override};}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17     \textcolor{keyword}{private}:}
+\DoxyCodeLine{18         GLFWwindow* m\_WindowHandle;}
+\DoxyCodeLine{19     \};}
+\DoxyCodeLine{20 \}}
+
+\end{DoxyCode}

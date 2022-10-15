@@ -17,6 +17,11 @@ namespace TerraformCrater {
 		glfwMakeContextCurrent(m_WindowHandle);
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 		TC_CORE_ASSERT(status, "Failed to initialize Glad!");
+
+		TC_CORE_INFO("OpenGL Info");
+		TC_CORE_INFO(" Vendor: {0}", glGetString(GL_VENDOR));
+		TC_CORE_INFO(" Renderer: {0}", glGetString(GL_RENDERER));
+		TC_CORE_INFO(" Version: {0}", glGetString(GL_VERSION));
 	}
 
 	void OpenGLContext::SwapBuffers()
