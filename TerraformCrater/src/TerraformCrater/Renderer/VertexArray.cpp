@@ -1,7 +1,7 @@
 #include "tcpch.h"
 #include "VertexArray.h"
 
-#include "TerraformCrater/Renderer/Renderer.h"
+#include "Renderer.h"
 #include "Platform/OpenGL/OpenGLVertexArray.h"
 
 namespace TerraformCrater {

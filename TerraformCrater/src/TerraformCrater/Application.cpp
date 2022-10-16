@@ -9,27 +9,6 @@
 namespace TerraformCrater {
 
 //#define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
-	// Temporary
-	static GLenum ShaderDataTypeToOpenGLBaseType(ShaderDataType type)
-	{
-		switch (type)
-		{
-		case ShaderDataType::Float:    return GL_FLOAT;
-		case ShaderDataType::Float2:   return GL_FLOAT;
-		case ShaderDataType::Float3:   return GL_FLOAT;
-		case ShaderDataType::Float4:   return GL_FLOAT;
-		case ShaderDataType::Mat3:     return GL_FLOAT;
-		case ShaderDataType::Mat4:     return GL_FLOAT;
-		case ShaderDataType::Int:      return GL_INT;
-		case ShaderDataType::Int2:     return GL_INT;
-		case ShaderDataType::Int3:     return GL_INT;
-		case ShaderDataType::Int4:     return GL_INT;
-		case ShaderDataType::Bool:     return GL_BOOL;
-		}
-
-		TC_CORE_ASSERT(false, "Unknown ShaderDataType!");
-		return 0;
-	}
 
 	Application* Application::s_Instance = nullptr;
 
@@ -54,19 +33,17 @@ namespace TerraformCrater {
 			-0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f  // top left 
 		};
 
-		// Vertex Buffer
-		m_VertexBuffer.reset(VertexBuffer::Create(vertices, sizeof(vertices)));
-
-		// Vertex Array
-		glGenVertexArrays(1, &m_VertexArray);
-		glBindVertexArray(m_VertexArray);
-
-		
-		// Index/ element Buffer
+		// Indices
 		unsigned int indices[] = {
 		  0, 1, 3, // first triangle
 		  1, 2, 3  // second triangle
 		};
+
+		// Vertex Array
+		m_VertexArray.reset(VertexArray::Create());
+
+		// Vertex Buffer
+		m_VertexBuffer.reset(VertexBuffer::Create(vertices, sizeof(vertices)));
 
 		// Index Buffer
 		m_IndexBuffer.reset(IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
@@ -77,25 +54,17 @@ namespace TerraformCrater {
 		Shader ourShader("assets/shaders/texture.vs", "assets/shaders/texture.fs");
 
 		BufferLayout layout = {
-			{ShaderDataType::Float3, "a_Position"},
-			{ShaderDataType::Float3, "a_Color" },
-			{ShaderDataType::Float2, "a_Texture"}
+			{ShaderDataType::Float3, "a_Position", true},
+			{ShaderDataType::Float3, "a_Color", true },
+			{ShaderDataType::Float2, "a_Texture", true}
 		};
 
-		uint32_t index = 0;
-		for (const auto& element : layout)
-		{
-			glEnableVertexAttribArray(index);
-			glVertexAttribPointer(
-							index,
-							element.GetComponentCount(),
-							ShaderDataTypeToOpenGLBaseType(element.Type),
-							element.Normalized ? GL_TRUE : GL_FALSE,
-							layout.GetStride(),
-							(const void*)element.Offset
-			);
-			index++;
-		}
+		m_VertexBuffer->SetLayout(layout);
+
+		m_VertexArray->AddVertexBuffer(m_VertexBuffer);
+		m_VertexArray->SetIndexBuffer(m_IndexBuffer);
+
+
 
 		// load and create a texture 
    // -------------------------
@@ -208,7 +177,7 @@ namespace TerraformCrater {
 			glClear(GL_COLOR_BUFFER_BIT);
 
 
-			glBindVertexArray(m_VertexArray);
+			m_VertexArray->Bind();
 			glDrawElements(GL_TRIANGLES, m_IndexBuffer->GetCount(), GL_UNSIGNED_INT, nullptr);
 
 			for (Layer* layer : m_LayerStack)
