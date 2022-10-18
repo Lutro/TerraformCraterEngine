@@ -48,10 +48,11 @@ namespace TerraformCrater {
 		// Index Buffer
 		m_IndexBuffer.reset(IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 		
-	
+
 		// build and compile our shader zprogram
    // ------------------------------------
-		Shader ourShader("assets/shaders/texture.vs", "assets/shaders/texture.fs");
+		//Shader ourShader("assets/shaders/texture.vs", "assets/shaders/texture.fs");
+		m_Shader.reset(Shader::Create("assets/shaders/texture.vs", "assets/shaders/texture.fs"));
 
 		BufferLayout layout = {
 			{ShaderDataType::Float3, "a_Position", true},
@@ -120,11 +121,11 @@ namespace TerraformCrater {
 
 		// tell opengl for each sampler to which texture unit it belongs to (only has to be done once)
 		// -------------------------------------------------------------------------------------------
-		ourShader.use(); // don't forget to activate/use the shader before setting uniforms!
+		m_Shader->Bind(); // don't forget to activate/use the shader before setting uniforms!
 		// either set it manually like so:
-		glUniform1i(glGetUniformLocation(ourShader.ID, "texture1"), 0);
+		m_Shader->SetInt("texture1", 0);
 		// or set it via the texture class
-		ourShader.setInt("texture2", 1);
+		m_Shader->SetInt("texture2", 1);
 
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, texture1);

@@ -10,56 +10,61 @@
 
 namespace TerraformCrater {
 
-	Shader::Shader(const char* vertexPath, const char* fragmentPath)
+	OpenGLShader::OpenGLShader(const std::string& vertexPath, const std::string& fragmentPath)
 	{
 		// 1. retrieve the vertex/fragment source code from filePath
-		std::string vertexCode;
-		std::string fragmentCode;
-		std::ifstream vShaderFile;
-		std::ifstream fShaderFile;
-		// ensure ifstream objects can throw exceptions:
-		vShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
-		fShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
-		try
-		{
-			// open files
-			vShaderFile.open(vertexPath);
-			fShaderFile.open(fragmentPath);
-			std::stringstream vShaderStream, fShaderStream;
-			// read file's buffer contents into streams
-			vShaderStream << vShaderFile.rdbuf();
-			fShaderStream << fShaderFile.rdbuf();
-			// close file handlers
-			vShaderFile.close();
-			fShaderFile.close();
-			// convert stream into string
-			vertexCode = vShaderStream.str();
-			fragmentCode = fShaderStream.str();
-		}
-		catch (std::ifstream::failure& e)
-		{
-			std::cout << "ERROR::SHADER::FILE_NOT_SUCCESFULLY_READ: " << e.what() << std::endl;
-		}
+		std::string vertexCode = ReadFile(vertexPath);
+		std::string fragmentCode = ReadFile(fragmentPath);
+		//std::ifstream vShaderFile;
+		//std::ifstream fShaderFile;
+		//// ensure ifstream objects can throw exceptions:
+		//vShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+		//fShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+		//try
+		//{
+		//	// open files
+		//	vShaderFile.open(vertexPath);
+		//	fShaderFile.open(fragmentPath);
+		//	std::stringstream vShaderStream, fShaderStream;
+		//	// read file's buffer contents into streams
+		//	vShaderStream << vShaderFile.rdbuf();
+		//	fShaderStream << fShaderFile.rdbuf();
+		//	// close file handlers
+		//	vShaderFile.close();
+		//	fShaderFile.close();
+		//	// convert stream into string
+		//	vertexCode = vShaderStream.str();
+		//	fragmentCode = fShaderStream.str();
+		//}
+		//catch (std::ifstream::failure& e)
+		//{
+		//	std::cout << "ERROR::SHADER::FILE_NOT_SUCCESFULLY_READ: " << e.what() << std::endl;
+		//}
 		const char* vShaderCode = vertexCode.c_str();
 		const char* fShaderCode = fragmentCode.c_str();
+
+
 		// 2. compile shaders
 		unsigned int vertex, fragment;
+
 		// vertex shader
 		vertex = glCreateShader(GL_VERTEX_SHADER);
 		glShaderSource(vertex, 1, &vShaderCode, NULL);
 		glCompileShader(vertex);
-		checkCompileErrors(vertex, "VERTEX");
+
 		// fragment Shader
 		fragment = glCreateShader(GL_FRAGMENT_SHADER);
 		glShaderSource(fragment, 1, &fShaderCode, NULL);
 		glCompileShader(fragment);
-		checkCompileErrors(fragment, "FRAGMENT");
+
 		// shader Program
-		ID = glCreateProgram();
-		glAttachShader(ID, vertex);
-		glAttachShader(ID, fragment);
-		glLinkProgram(ID);
-		checkCompileErrors(ID, "PROGRAM");
+		GLuint program = glCreateProgram();
+		glAttachShader(program, vertex);
+		glAttachShader(program, fragment);
+		glLinkProgram(program);
+
+		m_RendererID = program;
+		
 		// delete the shaders as they're linked into our program now and no longer necessary
 		glDeleteShader(vertex);
 		glDeleteShader(fragment);
@@ -73,8 +78,7 @@ namespace TerraformCrater {
 		sources[GL_VERTEX_SHADER] = vertexSrc;
 		sources[GL_FRAGMENT_SHADER] = fragmentSrc;
 
-		CompileOrGetOpenGLBinaries();
-		CreateProgram();
+		
 	}
 
 	OpenGLShader::~OpenGLShader()
@@ -111,56 +115,46 @@ namespace TerraformCrater {
 	}
 
 
-	void OpenGLShader::CompileOrGetOpenGLBinaries()
-	{
-		auto& shaderData = m_OpenGLSPIRV;
+	//void OpenGLShader::CreateProgram()
+	//{
+	//	GLuint program = glCreateProgram();
 
-		const bool optimize = false;
+	//	std::vector<GLuint> shaderIDs;
+	//	for (auto&& [stage, spirv] : m_OpenGLSPIRV)
+	//	{
+	//		GLuint shaderID = shaderIDs.emplace_back(glCreateShader(stage));
+	//		glShaderBinary(1, &shaderID, GL_SHADER_BINARY_FORMAT_SPIR_V, spirv.data(), spirv.size() * sizeof(uint32_t));
+	//		glSpecializeShader(shaderID, "main", 0, nullptr, nullptr);
+	//		glAttachShader(program, shaderID);
+	//	}
 
-		shaderData.clear();
-		m_OpenGLSourceCode.clear();
-	}
+	//	glLinkProgram(program);
 
-	void OpenGLShader::CreateProgram()
-	{
-		GLuint program = glCreateProgram();
+	//	GLint isLinked;
+	//	glGetProgramiv(program, GL_LINK_STATUS, &isLinked);
+	//	if (isLinked == GL_FALSE)
+	//	{
+	//		GLint maxLength;
+	//		glGetProgramiv(program, GL_INFO_LOG_LENGTH, &maxLength);
 
-		std::vector<GLuint> shaderIDs;
-		for (auto&& [stage, spirv] : m_OpenGLSPIRV)
-		{
-			GLuint shaderID = shaderIDs.emplace_back(glCreateShader(stage));
-			glShaderBinary(1, &shaderID, GL_SHADER_BINARY_FORMAT_SPIR_V, spirv.data(), spirv.size() * sizeof(uint32_t));
-			glSpecializeShader(shaderID, "main", 0, nullptr, nullptr);
-			glAttachShader(program, shaderID);
-		}
+	//		std::vector<GLchar> infoLog(maxLength);
+	//		glGetProgramInfoLog(program, maxLength, &maxLength, infoLog.data());
+	//		TC_CORE_ERROR("Shader linking failed ({0}):\n{1}", m_FilePath, infoLog.data());
 
-		glLinkProgram(program);
+	//		glDeleteProgram(program);
 
-		GLint isLinked;
-		glGetProgramiv(program, GL_LINK_STATUS, &isLinked);
-		if (isLinked == GL_FALSE)
-		{
-			GLint maxLength;
-			glGetProgramiv(program, GL_INFO_LOG_LENGTH, &maxLength);
+	//		for (auto id : shaderIDs)
+	//			glDeleteShader(id);
+	//	}
 
-			std::vector<GLchar> infoLog(maxLength);
-			glGetProgramInfoLog(program, maxLength, &maxLength, infoLog.data());
-			TC_CORE_ERROR("Shader linking failed ({0}):\n{1}", m_FilePath, infoLog.data());
+	//	for (auto id : shaderIDs)
+	//	{
+	//		glDetachShader(program, id);
+	//		glDeleteShader(id);
+	//	}
 
-			glDeleteProgram(program);
-
-			for (auto id : shaderIDs)
-				glDeleteShader(id);
-		}
-
-		for (auto id : shaderIDs)
-		{
-			glDetachShader(program, id);
-			glDeleteShader(id);
-		}
-
-		m_RendererID = program;
-	}
+	//	m_RendererID = program;
+	//}
 
 	void OpenGLShader::Bind() const
 	{

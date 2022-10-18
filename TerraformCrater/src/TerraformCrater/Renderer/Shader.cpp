@@ -16,7 +16,7 @@ namespace TerraformCrater
         switch (Renderer::GetAPI())
         {
         case RendererAPI::None:    TC_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
-        case RendererAPI::OpenGL:  return new OpenGLShader(vertexPath, fragmentPath));
+        case RendererAPI::OpenGL:  return new OpenGLShader(vertexPath, fragmentPath);
         }
 
         TC_CORE_ASSERT(false, "Unknown RendererAPI!");

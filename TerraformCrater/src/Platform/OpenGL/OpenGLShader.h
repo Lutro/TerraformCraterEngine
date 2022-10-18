@@ -38,8 +38,6 @@ namespace TerraformCrater {
 	private:
 		std::string ReadFile(const std::string& filepath);
 
-		void CompileOrGetOpenGLBinaries();
-		void CreateProgram();
 	private:
 		uint32_t m_RendererID;
 		std::string m_FilePath;
