@@ -43,10 +43,19 @@ namespace TerraformCrater {
 		m_VertexArray.reset(VertexArray::Create());
 
 		// Vertex Buffer
-		m_VertexBuffer.reset(VertexBuffer::Create(vertices, sizeof(vertices)));
+		std::shared_ptr<VertexBuffer> VBO;
+		VBO.reset(VertexBuffer::Create(vertices, sizeof(vertices)));
+		VBO->SetLayout({
+			{ShaderDataType::Float3, "a_Position", true},
+			{ShaderDataType::Float3, "a_Color", true },
+			{ShaderDataType::Float2, "a_Texture", true} 
+			});
+		m_VertexArray->AddVertexBuffer(VBO);
 
 		// Index Buffer
-		m_IndexBuffer.reset(IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
+		std::shared_ptr<IndexBuffer> IBO;
+		IBO.reset(IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
+		m_VertexArray->SetIndexBuffer(IBO);
 		
 
 		// build and compile our shader zprogram
@@ -54,18 +63,9 @@ namespace TerraformCrater {
 		//Shader ourShader("assets/shaders/texture.vs", "assets/shaders/texture.fs");
 		m_Shader.reset(Shader::Create("assets/shaders/texture.vs", "assets/shaders/texture.fs"));
 
-		BufferLayout layout = {
-			{ShaderDataType::Float3, "a_Position", true},
-			{ShaderDataType::Float3, "a_Color", true },
-			{ShaderDataType::Float2, "a_Texture", true}
-		};
 
-		m_VertexBuffer->SetLayout(layout);
-
-		m_VertexArray->AddVertexBuffer(m_VertexBuffer);
-		m_VertexArray->SetIndexBuffer(m_IndexBuffer);
-
-
+		//m_SquareVA.reset(VertexArray::Create());
+		//std::shared_ptr<VertexBuffer> squareVB = std::make_shared<VertexBuffer>();
 
 		// load and create a texture 
    // -------------------------
@@ -157,9 +157,6 @@ namespace TerraformCrater {
 	{
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(TC_BIND_EVENT_FN(OnWindowClose));
-		//dispatcher.Dispatch<WindowResizeEvent>(TC_BIND_EVENT_FN(OnWindowResize));
-
-		//TC_CORE_INFO("{0}", e);
 
 		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin(); )
 		{
@@ -177,9 +174,19 @@ namespace TerraformCrater {
 			glClearColor(0.1f, 0.1f, 0.1f, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
 
+			RenderCommand::SetClearColor();
+			RenderCommand::Clear();
 
+
+			Renderer::BeginScene();
+			Renderer::Submit();
+			Renderer::EndScene();
+
+		
+
+			m_Shader->Bind();
 			m_VertexArray->Bind();
-			glDrawElements(GL_TRIANGLES, m_IndexBuffer->GetCount(), GL_UNSIGNED_INT, nullptr);
+			glDrawElements(GL_TRIANGLES, m_VertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr);
 
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();

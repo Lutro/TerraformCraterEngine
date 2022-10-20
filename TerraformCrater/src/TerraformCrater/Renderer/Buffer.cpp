@@ -11,8 +11,8 @@ namespace TerraformCrater
 	{
 		switch (Renderer::GetAPI())
 		{
-		case RendererAPI::None:    TC_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
-		case RendererAPI::OpenGL:  return new OpenGLVertexBuffer(size);
+		case RendererAPI::API::None:    TC_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
+		case RendererAPI::API::OpenGL:  return new OpenGLVertexBuffer(size);
 		}
 
 		TC_CORE_ASSERT(false, "Unknown RendererAPI!");
@@ -23,8 +23,8 @@ namespace TerraformCrater
 	{
 		switch (Renderer::GetAPI())
 		{
-		case RendererAPI::None:    TC_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
-		case RendererAPI::OpenGL:  return  new OpenGLVertexBuffer(vertices, size);
+		case RendererAPI::API::None:    TC_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
+		case RendererAPI::API::OpenGL:  return  new OpenGLVertexBuffer(vertices, size);
 		}
 
 		TC_CORE_ASSERT(false, "Unknown RendererAPI!");
@@ -36,8 +36,8 @@ namespace TerraformCrater
 	{
 		switch (Renderer::GetAPI())
 		{
-		case RendererAPI::None:    TC_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
-		case RendererAPI::OpenGL:  return new OpenGLIndexBuffer(indices, count);
+		case RendererAPI::API::None:    TC_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
+		case RendererAPI::API::OpenGL:  return new OpenGLIndexBuffer(indices, count);
 		}
 
 		TC_CORE_ASSERT(false, "Unknown RendererAPI!");
