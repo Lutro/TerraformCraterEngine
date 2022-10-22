@@ -1,6 +1,10 @@
 #include <TerraformCrater.h>
 
+
 #include "imgui/imgui.h"
+
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 class ExampleLayer : public TerraformCrater::Layer
 {
@@ -75,14 +79,14 @@ public:
    // ------------------------------------
 
 		blueShader.reset(TerraformCrater::Shader::Create("assets/shaders/blueShader.vs", "assets/shaders/blueShader.fs"));
-		m_Shader.reset(TerraformCrater::Shader::Create("assets/shaders/texture.vs", "assets/shaders/texture.fs"));
+		m_FlatColorShader.reset(TerraformCrater::Shader::Create("assets/shaders/flatColorShader.vs", "assets/shaders/flatColorShader.fs"));
 
 	}
 
 	void OnUpdate(TerraformCrater::TimeStep ts) override
 	{
 		TC_TRACE("Delta time : {0}s, ({1}ms)", ts.GetSeconds(), ts.GetMilliSeconds());
-		// Key Input
+		// Camera Key Input 
 		if (TerraformCrater::Input::IsKeyPressed(TerraformCrater::Key::Left))
 			m_CameraPosition.x -= m_CameraMoveSpeed * ts;
 		else if (TerraformCrater::Input::IsKeyPressed(TerraformCrater::Key::Right))
@@ -93,11 +97,22 @@ public:
 		else if (TerraformCrater::Input::IsKeyPressed(TerraformCrater::Key::Up))
 			m_CameraPosition.y += m_CameraMoveSpeed * ts;
 
+		// Rotation Key input
 		if (TerraformCrater::Input::IsKeyPressed(TerraformCrater::Key::A))
 			m_CameraRotation += m_CameraRotationSpeed * ts;
 		if (TerraformCrater::Input::IsKeyPressed(TerraformCrater::Key::D))
 			m_CameraRotation -= m_CameraRotationSpeed * ts;
 
+		//// Object position Key input
+		//if (TerraformCrater::Input::IsKeyPressed(TerraformCrater::Key::J))
+		//	m_SquarePosition.x -= m_SquareMoveSpeed * ts;
+		//else if (TerraformCrater::Input::IsKeyPressed(TerraformCrater::Key::L))
+		//	m_SquarePosition.x += m_SquareMoveSpeed * ts;
+
+		//if (TerraformCrater::Input::IsKeyPressed(TerraformCrater::Key::I))
+		//	m_SquarePosition.y -= m_SquareMoveSpeed * ts;
+		//else if (TerraformCrater::Input::IsKeyPressed(TerraformCrater::Key::K))
+		//	m_SquarePosition.y += m_SquareMoveSpeed * ts;
 
 		TerraformCrater::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
 		TerraformCrater::RenderCommand::Clear();
@@ -107,7 +122,27 @@ public:
 
 		TerraformCrater::Renderer::BeginScene(m_Camera);
 
-		TerraformCrater::Renderer::Submit(m_Shader, m_SquareVA);
+		glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
+
+		glm::vec4 redColor(0.8f, 0.2f, 0.3f, 1.0f);
+		glm::vec4 blueColor(0.2f, 0.3f, 0.8f, 1.0f);
+
+		
+		m_FlatColorShader->Bind();
+		m_FlatColorShader->SetFloat3("u_Color", m_SquareColor);
+
+
+		for (int y = 0; y < 20; y++)
+		{
+			for (int x = 0; x < 20; x++) 
+			{
+				glm::vec3 pos(x * 0.11f, y *  0.11f, 0.0f);
+				glm::mat4 transform = glm::translate(glm::mat4(1.0f), pos) * scale;
+				TerraformCrater::Renderer::Submit(m_FlatColorShader, m_SquareVA, transform);
+			}
+
+		}
+
 		TerraformCrater::Renderer::Submit(blueShader, m_VertexArray);
 
 		TerraformCrater::Renderer::EndScene();
@@ -116,7 +151,9 @@ public:
 
 	virtual void OnImGuiRender() override
 	{
-	
+		ImGui::Begin("Settings");
+		ImGui::ColorEdit3("Square Color", glm::value_ptr(m_SquareColor));
+		ImGui::End();
 	}
 
 	void OnEvent(TerraformCrater::Event& event) override
@@ -127,7 +164,7 @@ public:
 
 
 private:
-	std::shared_ptr<TerraformCrater::Shader> m_Shader;
+	std::shared_ptr<TerraformCrater::Shader> m_FlatColorShader;
 	std::shared_ptr<TerraformCrater::Shader> blueShader;
 
 	std::shared_ptr<TerraformCrater::VertexArray> m_VertexArray;
@@ -140,6 +177,10 @@ private:
 
 	float m_CameraRotation = 0.0f;
 	float m_CameraRotationSpeed = 180.0f;
+
+	glm::vec3 m_SquareColor = { 0.2f, 0.3f, 0.8f };
+	//glm::vec3 m_SquarePosition;
+	//float m_SquareMoveSpeed = 1.0f;
 };
 
 

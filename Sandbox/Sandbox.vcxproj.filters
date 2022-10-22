@@ -33,5 +33,7 @@
   <ItemGroup>
     <None Include="assets\shaders\blueShader.fs" />
     <None Include="assets\shaders\blueShader.vs" />
+    <None Include="assets\shaders\flatColorShader.fs" />
+    <None Include="assets\shaders\flatColorShader.vs" />
   </ItemGroup>
 </Project>

@@ -144,6 +144,8 @@
     <Image Include="assets\textures\wall.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="assets\shaders\flatColorShader.fs" />
+    <None Include="assets\shaders\flatColorShader.vs" />
     <None Include="assets\shaders\blueShader.fs" />
     <None Include="assets\shaders\blueShader.vs" />
   </ItemGroup>

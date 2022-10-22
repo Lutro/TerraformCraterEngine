@@ -1379,6 +1379,8 @@
     <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
     <ClInclude Include="src\TerraformCrater\Renderer\OrthographicCamera.h" />
     <ClInclude Include="src\TerraformCrater\Core\TimeStep.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLTexture.h" />
+    <ClInclude Include="src\TerraformCrater\Renderer\Texture.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
@@ -1430,5 +1432,7 @@
     <ClCompile Include="src\TerraformCrater\Renderer\RenderCommand.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp" />
     <ClCompile Include="src\TerraformCrater\Renderer\OrthographicCamera.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLTexture.cpp" />
+    <ClCompile Include="src\TerraformCrater\Renderer\Texture.cpp" />
   </ItemGroup>
 </Project>

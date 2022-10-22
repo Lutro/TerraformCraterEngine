@@ -2,7 +2,6 @@
 #include "Platform/OpenGL/OpenGLShader.h"
 //#include "TerraformCrater/Core/Timer.h"
 
-#include <fstream>
 #include <glad/glad.h>
 
 #include <glm/gtc/type_ptr.hpp>

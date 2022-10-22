@@ -140,6 +140,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLTexture.h" />
     <ClInclude Include="src\TerraformCrater\Core\TimeStep.h" />
     <ClInclude Include="src\TerraformCrater\Renderer\OrthographicCamera.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
@@ -172,6 +173,7 @@
     <ClInclude Include="src\TerraformCrater\Window.h" />
     <ClInclude Include="src\TerraformCrater\WindowsInput.h" />
     <ClInclude Include="src\tcpch.h" />
+    <ClInclude Include="src\TerraformCrater\Renderer\Texture.h" />
     <ClInclude Include="vendor\glm\glm\common.hpp" />
     <ClInclude Include="vendor\glm\glm\detail\_features.hpp" />
     <ClInclude Include="vendor\glm\glm\detail\_fixes.hpp" />
@@ -591,6 +593,7 @@
     <ClInclude Include="src\TerraformCrater\Renderer\VertexArray.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLTexture.cpp" />
     <ClCompile Include="src\TerraformCrater\Renderer\OrthographicCamera.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp" />
     <ClCompile Include="src\TerraformCrater\Renderer\RenderCommand.cpp" />
@@ -614,6 +617,7 @@
     <ClCompile Include="src\tcpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\TerraformCrater\Renderer\Texture.cpp" />
     <ClCompile Include="vendor\stb_image\stb_image.cpp" />
     <ClCompile Include="src\TerraformCrater\Renderer\VertexArray.cpp" />
   </ItemGroup>
