@@ -20,10 +20,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\shaders\texture.fs" />
-    <None Include="assets\shaders\texture.vs" />
-  </ItemGroup>
-  <ItemGroup>
     <Image Include="assets\textures\awesomeface.png">
       <Filter>Resource Files</Filter>
     </Image>
@@ -33,5 +29,9 @@
     <Image Include="assets\textures\wall.jpg">
       <Filter>Resource Files</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\shaders\blueShader.fs" />
+    <None Include="assets\shaders\blueShader.vs" />
   </ItemGroup>
 </Project>

@@ -2,6 +2,7 @@
 
 #include "TerraformCrater/Core.h"
 #include "TerraformCrater/Events/Event.h"
+#include "TerraformCrater/Core/TimeStep.h"
 
 namespace TerraformCrater {
 	/**
@@ -30,7 +31,7 @@ namespace TerraformCrater {
 		/**
 		 * @brief 
 		*/
-		virtual void OnUpdate() {}
+		virtual void OnUpdate(TimeStep timestep) {}
 		/**
 		 * @brief 
 		*/

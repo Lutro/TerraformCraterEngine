@@ -140,6 +140,8 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\TerraformCrater\Core\TimeStep.h" />
+    <ClInclude Include="src\TerraformCrater\Renderer\OrthographicCamera.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
     <ClInclude Include="src\TerraformCrater\Renderer\RenderCommand.h" />
     <ClInclude Include="src\TerraformCrater\Renderer\RendererAPI.h" />
@@ -589,6 +591,7 @@
     <ClInclude Include="src\TerraformCrater\Renderer\VertexArray.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\TerraformCrater\Renderer\OrthographicCamera.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp" />
     <ClCompile Include="src\TerraformCrater\Renderer\RenderCommand.cpp" />
     <ClCompile Include="src\TerraformCrater\Renderer\RendererAPI.cpp" />

@@ -6,20 +6,13 @@
 #include "TerraformCrater/LayerStack.h"
 #include "TerraformCrater/Events/Event.h"
 #include "TerraformCrater/Events/ApplicationEvent.h"
+#include "TerraformCrater/Core/TimeStep.h"
 
 #include "TerraformCrater/ImGui/ImGuiLayer.h"
 
-#include "Renderer/Shader.h"
-#include "Renderer/Buffer.h"
-#include "Renderer/VertexArray.h"
-
-// remove
-#include "Platform/OpenGL/OpenGLVertexArray.h"
-
-
 namespace TerraformCrater {
 
-	class TERRAFORM_CRATER_API Application
+	class Application
 	{
 	public:
 		Application();
@@ -35,21 +28,18 @@ namespace TerraformCrater {
 		inline Window& GetWindow() { return *m_Window;  }
 
 		inline static Application& Get() { return *s_Instance; }
+
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
 
+	private:
 		std::unique_ptr<Window> m_Window;
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
-
-		std::shared_ptr<Shader> m_Shader;
-		std::shared_ptr<VertexArray> m_VertexArray;
-
-		std::shared_ptr<VertexArray> m_SquareVA;
+		float m_LastFrameTime;
 
 	private:
-
 		static Application* s_Instance;
 	};
 
